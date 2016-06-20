@@ -49,8 +49,7 @@
                             <li><a class = "btn btn-primary" href="<%=request.getContextPath()%>/admin/indexNew">Tin tức</a></li>
                             <li><a class = "btn btn-success" href="<%=request.getContextPath()%>/admin/indexCat">Danh mục</a></li>
                             <li><a class = "btn btn-destroy" href="<%=request.getContextPath()%>/admin/indexUser">Người dùng</a></li>
-                        </ul>
-                        
+                        </ul>                        
                     </div><!-- End. .grid_12-->
                 </div><!-- End. .container_12 -->
                 <div style="clear: both;"></div>

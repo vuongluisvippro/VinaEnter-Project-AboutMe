@@ -1,12 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div id="footer">
+		<div>
+			<p>
+				Một dự án khóa học lập trình tại <a href="http://vinaenter.edu.vn" title="đào tạo lập trình php, java">VinaENTER EDU</a>
+			</p>
+			<ul>
+				<li>
+					<a href="https://www.facebook.com/vinaenter.edu.vn" id="facebook">Code by: Trần Nguyễn Gia Huy - Lớp JAVA02</a>
+				</li>
+			</ul>
+			<div>
+				<span>Kết nối:</span>
+				<a href="https://www.facebook.com/vinaenter.edu.vn" id="facebook">facebook</a>
+				<a href="https://www.facebook.com/vinatab.java.oop" id="twitter">twitter</a>
+				<a href="https://plus.google.com/u/0/116224150844139911881" id="googleplus">googleplus</a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

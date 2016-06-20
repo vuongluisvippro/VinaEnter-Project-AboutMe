@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>MyProject</title>
-	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/templates/public/css/style.css" type="text/css">
 	<!--[if IE 7]>
 		<link rel="stylesheet" href="css/ie7.css" type="text/css">
 	<![endif]-->
@@ -15,7 +15,7 @@
 		<div>
 			<div>
 				<span>Trần Nguyễn Gia Huy</span>
-				<a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+				<a href="index.html" class="logo"><img src="<%=request.getContextPath()%>/templates/public/images/logo.png" alt=""></a>
 				<span class="tagline">Mỗi ngày là một món quà</span>
 			</div>
 			<ul>
