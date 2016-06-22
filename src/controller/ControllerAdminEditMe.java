@@ -53,7 +53,7 @@ public class ControllerAdminEditMe extends HttpServlet {
 				request.setAttribute("msg", "edit0");
 			}
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/admin/editMe.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/admin/about-me.jsp");
 		rd.forward(request, response);
 	}
 }

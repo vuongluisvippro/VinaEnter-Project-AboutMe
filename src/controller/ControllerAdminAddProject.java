@@ -49,7 +49,7 @@ public class ControllerAdminAddProject extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		if("load".equals(request.getParameter("type"))){ ;
-			RequestDispatcher rd = request.getRequestDispatcher("/admin/addProject.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/admin/du-an-them-moi.jsp");
 			rd.forward(request, response);
 		}else{
 			/**
@@ -108,9 +108,9 @@ public class ControllerAdminAddProject extends HttpServlet {
 			}
 			Project item = new Project(name, preview_text, picture_new, link);
 			if(new ModelProject().addItem(item) > 0){
-				response.sendRedirect(request.getContextPath()+"/admin/danh-sach-du-an?msg=add1");
+				response.sendRedirect(request.getContextPath()+"/admin/du-an?msg=add1");
 			}else{
-				response.sendRedirect(request.getContextPath()+"/admin/danh-sach-du-an?msg=add0");
+				response.sendRedirect(request.getContextPath()+"/admin/du-an?msg=add0");
 			}
 		}
 	}

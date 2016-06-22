@@ -1,15 +1,19 @@
 package bean;
 
 @SuppressWarnings("all")
-public class Cat {
+public class Category {
 	private int id_cat;
 	private String name;
-	public Cat() {
+	public Category() {
 		super();
 	}
-	public Cat(int id_cat, String name) {
+	public Category(int id_cat, String name) {
 		super();
 		this.id_cat = id_cat;
+		this.name = name;
+	}
+	public Category(String name) {
+		super();
 		this.name = name;
 	}
 	public int getId_cat() {

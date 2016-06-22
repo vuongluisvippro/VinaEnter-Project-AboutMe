@@ -101,12 +101,12 @@ public class ControllerAdminEditProject extends HttpServlet {
 			}
 			Project item = new Project(id_project, name, preview_text, picture_new, link);
 			if(new ModelProject().editItem(item) > 0){
-				response.sendRedirect(request.getContextPath()+"/admin/danh-sach-du-an?msg=edit1");
+				response.sendRedirect(request.getContextPath()+"/admin/du-an?msg=edit1");
 			}else{
-				response.sendRedirect(request.getContextPath()+"/admin/danh-sach-du-an?msg=edit0");
+				response.sendRedirect(request.getContextPath()+"/admin/du-an?msg=edit0");
 			}
 		}else{
-			RequestDispatcher rd = request.getRequestDispatcher("/admin/editProject.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/admin/du-an-cap-nhat.jsp");
 			rd.forward(request, response);
 		}
 	}
