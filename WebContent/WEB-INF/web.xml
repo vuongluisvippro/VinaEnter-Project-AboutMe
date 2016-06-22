@@ -109,7 +109,7 @@
     <url-pattern>/admin/xoa-tin-tuc</url-pattern>
   </servlet-mapping>
   
-   <servlet>
+  <servlet>
     <servlet-name>ControllerAdminEditNew</servlet-name>
     <servlet-class>controller.ControllerAdminEditNew</servlet-class>
   </servlet>
@@ -117,4 +117,14 @@
     <servlet-name>ControllerAdminEditNew</servlet-name>
     <url-pattern>/admin/cap-nhat-tin-tuc</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminIndexUser</servlet-name>
+    <servlet-class>controller.ControllerAdminIndexUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminIndexUser</servlet-name>
+    <url-pattern>/admin/nguoi-dung</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
