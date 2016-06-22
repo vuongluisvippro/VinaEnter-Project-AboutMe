@@ -9,6 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <!-- ADMIN -->
   <servlet>
     <servlet-name>ControllerAdminEditMe</servlet-name>
     <servlet-class>controller.ControllerAdminEditMe</servlet-class>
@@ -17,6 +18,7 @@
     <servlet-name>ControllerAdminEditMe</servlet-name>
     <url-pattern>/admin/cap-nhat-gioi-thieu</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>ControllerAdminIndexProject</servlet-name>
     <servlet-class>controller.ControllerAdminIndexProject</servlet-class>
@@ -25,6 +27,7 @@
     <servlet-name>ControllerAdminIndexProject</servlet-name>
     <url-pattern>/admin/du-an</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>ControllerAdminEditProject</servlet-name>
     <servlet-class>controller.ControllerAdminEditProject</servlet-class>
@@ -33,6 +36,7 @@
     <servlet-name>ControllerAdminEditProject</servlet-name>
     <url-pattern>/admin/cap-nhat-du-an</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>ControllerAdminAddProject</servlet-name>
     <servlet-class>controller.ControllerAdminAddProject</servlet-class>
@@ -41,6 +45,7 @@
     <servlet-name>ControllerAdminAddProject</servlet-name>
     <url-pattern>/admin/them-moi-du-an</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>ControllerAdminIndexCat</servlet-name>
     <servlet-class>controller.ControllerAdminIndexCat</servlet-class>
@@ -49,6 +54,7 @@
     <servlet-name>ControllerAdminIndexCat</servlet-name>
     <url-pattern>/admin/danh-muc</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>ControllerAdminAddCat</servlet-name>
     <servlet-class>controller.ControllerAdminAddCat</servlet-class>
@@ -57,6 +63,7 @@
     <servlet-name>ControllerAdminAddCat</servlet-name>
     <url-pattern>/admin/them-moi-danh-muc</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>ControllerAdminEditCat</servlet-name>
     <servlet-class>controller.ControllerAdminEditCat</servlet-class>
@@ -65,4 +72,23 @@
     <servlet-name>ControllerAdminEditCat</servlet-name>
     <url-pattern>/admin/cap-nhat-danh-muc</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminDeleteCat</servlet-name>
+    <servlet-class>controller.ControllerAdminDeleteCat</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminDeleteCat</servlet-name>
+    <url-pattern>/admin/xoa-danh-muc</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>ControllerAdminIndexNew</servlet-name>
+    <servlet-class>controller.ControllerAdminIndexNew</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminIndexNew</servlet-name>
+    <url-pattern>/admin/tin-tuc</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

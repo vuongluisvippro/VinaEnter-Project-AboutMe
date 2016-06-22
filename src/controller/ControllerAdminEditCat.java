@@ -63,14 +63,13 @@ public class ControllerAdminEditCat extends HttpServlet {
 				cont = false;
 			}
 			if(cont){
-				if(new ModelCategory().editItem(new Category(name)) > 0){
+				if(new ModelCategory().editItem(new Category(id,name)) > 0){
 					response.sendRedirect(request.getContextPath()+"/admin/danh-muc?msg=edit1");
 				}else{
 					response.sendRedirect(request.getContextPath()+"/admin/danh-muc?msg=edit0");
 				}
 			}else{
 				request.setAttribute("messageBundle", messageBundle);
-				request.setAttribute("item", new ModelCategory().getItem(id));
 				RequestDispatcher rd = request.getRequestDispatcher("/admin/danh-muc-cap-nhat.jsp");
 				rd.forward(request, response);
 			}

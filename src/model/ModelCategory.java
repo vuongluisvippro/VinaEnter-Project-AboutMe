@@ -106,4 +106,24 @@ public class ModelCategory {
 		}
 		return result;
 	}
+	public int delItem(int id) {
+		int result = 0;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "DELETE FROM "+tbName+" WHERE "+idName+" = ? LIMIT 1";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Error "+e.getMessage());
+		} finally{
+			try {
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println("Error "+e.getMessage());
+			}
+		}
+		return result;
+	}
 }

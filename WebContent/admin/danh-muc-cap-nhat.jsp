@@ -8,8 +8,8 @@
 
 	<div class="module">
 	<%
-		Category cat = new Category();
-		cat = (Category)request.getAttribute("item");
+		Category item = new Category();
+		item = (Category)request.getAttribute("item");
 	%>
 		 <div class="modul()e-body">
 		 <p style="color:red">
@@ -25,13 +25,13 @@
 			 }
 		 	%>
 		 </p>
-			<form action="<%=request.getContextPath()%>/admin/cap-nhat-danh-muc?cid=<%=cat.getId_cat()%>" method="post" id="frmxcat">
+			<form action="<%=request.getContextPath()%>/admin/cap-nhat-danh-muc?cid=<%=item.getId_cat()%>" method="post" id="frmxcat">
 				<p>
 					<label>Tên danh mục</label>
-					<input type="text" name="ten" value="<%=cat.getName()%>" class="input-medium" />
+					<input type="text" name="name" value="<%=item.getName()%>" class="input-medium" />
 				</p>
 				<fieldset>
-					<input class="submit-green" name="capnhat" type="submit" value="Sữa" /> 
+					<input class="submit-green" name="capnhat" type="submit" value="Cập nhật" /> 
 				</fieldset>
 			</form>
 		 </div> <!-- End .module-body -->

@@ -6,7 +6,7 @@ public class New {
 	private String name;
 	private String preview_text;
 	private String detail_text;
-	private String id_cat;
+	private int id_cat;
 	private String picture;
 	private int read;
 	private int is_active;
@@ -14,7 +14,7 @@ public class New {
 	public New() {
 		super();
 	}
-	public New(int id_new, String name, String preview_text, String detail_text, String id_cat, String picture,
+	public New(int id_new, String name, String preview_text, String detail_text, int id_cat, String picture,
 			int read, int is_active, String nameCat) {
 		super();
 		this.id_new = id_new;
@@ -51,10 +51,10 @@ public class New {
 	public void setDetail_text(String detail_text) {
 		this.detail_text = detail_text;
 	}
-	public String getId_cat() {
+	public int getId_cat() {
 		return id_cat;
 	}
-	public void setId_cat(String id_cat) {
+	public void setId_cat(int id_cat) {
 		this.id_cat = id_cat;
 	}
 	public String getPicture() {
