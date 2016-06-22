@@ -18,5 +18,29 @@
       <servlet-name>ControllerAdminEditMe</servlet-name>
       <url-pattern>/admin/cap-nhat-gioi-thieu</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+      <servlet-name>ControllerAdminIndexProject</servlet-name>
+      <servlet-class>controller.ControllerAdminIndexProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>ControllerAdminIndexProject</servlet-name>
+      <url-pattern>/admin/danh-sach-du-an</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>ControllerAdminEditProject</servlet-name>
+      <servlet-class>controller.ControllerAdminEditProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>ControllerAdminEditProject</servlet-name>
+      <url-pattern>/admin/cap-nhat-du-an</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>ControllerAdminAddProject</servlet-name>
+      <servlet-class>controller.ControllerAdminAddProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>ControllerAdminAddProject</servlet-name>
+      <url-pattern>/admin/them-moi-du-an</url-pattern>
+  </servlet-mapping>
+  <!--  PUBLIC - FRONT ENT -->
 </web-app>

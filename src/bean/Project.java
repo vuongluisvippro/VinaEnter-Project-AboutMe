@@ -18,6 +18,14 @@ public class Project {
 		this.picture = picture;
 		this.link = link;
 	}
+	
+	public Project(String name, String preview_text, String picture, String link) {
+		super();
+		this.name = name;
+		this.preview_text = preview_text;
+		this.picture = picture;
+		this.link = link;
+	}
 	public int getId_project() {
 		return id_project;
 	}
