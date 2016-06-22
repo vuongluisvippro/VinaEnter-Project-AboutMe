@@ -91,4 +91,30 @@
     <url-pattern>/admin/tin-tuc</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>ControllerAdminAddNew</servlet-name>
+    <servlet-class>controller.ControllerAdminAddNew</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminAddNew</servlet-name>
+    <url-pattern>/admin/them-moi-tin-tuc</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminDeleteNew</servlet-name>
+    <servlet-class>controller.ControllerAdminDeleteNew</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminDeleteNew</servlet-name>
+    <url-pattern>/admin/xoa-tin-tuc</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>ControllerAdminEditNew</servlet-name>
+    <servlet-class>controller.ControllerAdminEditNew</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminEditNew</servlet-name>
+    <url-pattern>/admin/cap-nhat-tin-tuc</url-pattern>
+  </servlet-mapping>
 </web-app>

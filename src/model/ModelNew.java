@@ -27,16 +27,133 @@ public class ModelNew {
 	public ArrayList<New> getList() {
 		ArrayList<New> alNew = new ArrayList<New>();
 		Connection conn = mConnect.getConnectMySQL();
-		String sql = "SELECT news.id_news,news.name,news.preview_text,news.detail_text,news.id_cat,news.picture,news.read,news.is_active,category.name AS nameCat FROM news INNER JOIN category ON news.id_cat = category.id_cat";
+		String sql = "SELECT news.id_news,news.name,news.preview_text,news.detail_text,news.id_cat,news.picture,news.view,news.is_active,category.name AS nameCat FROM news INNER JOIN category ON news.id_cat = category.id_cat";
 		try {
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);
 			while(rs.next()){
-				alNew.add(new New(rs.getInt("id_news"), rs.getString("name"), rs.getString("preview_text"), rs.getString("detail_text"), rs.getInt("id_cat"), rs.getString("picture"), rs.getInt("read"), rs.getInt("is_active"), rs.getString("nameCat")));
+				alNew.add(new New(rs.getInt("id_news"), rs.getString("name"), rs.getString("preview_text"), rs.getString("detail_text"), rs.getInt("id_cat"), rs.getString("picture"), rs.getInt("view"), rs.getInt("is_active"), rs.getString("nameCat")));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 		return alNew;
+	}
+	public int addItem(New item) {
+		int result = 0;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "INSERT INTO "+tbName+"(name,preview_text,detail_text,id_cat,picture,view,is_active) VALUES (?,?,?,?,?,?,?)";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, item.getName());
+			pst.setString(2, item.getPreview_text());
+			pst.setString(3, item.getDetail_text());
+			pst.setInt(4, item.getId_cat());
+			pst.setString(5, item.getPicture());
+			pst.setInt(6, item.getRead());
+			pst.setInt(7, item.getIs_active());
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
+	public int delItem(int id) {
+		int result = 0;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "DELETE FROM "+tbName+" WHERE "+idName+" = ? LIMIT 1";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
+	public New getItem(int id) {
+		New item = null;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "SELECT news.id_news,news.name,news.preview_text,news.detail_text,news.id_cat,news.picture,news.view,news.is_active,category.name AS namecat FROM news INNER JOIN category ON news.id_cat = category.id_cat WHERE news.id_news = ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+			if(rs.next()){
+				item = new New(rs.getInt("id_news"),rs.getString("name"),rs.getString("preview_text"),rs.getString("detail_text"),rs.getInt("id_cat"),rs.getString("picture"),rs.getInt("view"),rs.getInt("is_active"),rs.getString("namecat"));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				rs.close();
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}			
+		}
+		return item;
+	}
+	public int editItem(New item) {
+		int result = 0;	
+		Connection conn = mConnect.getConnectMySQL();
+		if(item.getPicture().isEmpty()){
+			String sql = "UPDATE "+tbName+" SET name = ?,preview_text = ?,detail_text = ?,id_cat = ? WHERE "+idName+" = ? LIMIT 1";
+			try {
+				pst = conn.prepareStatement(sql);
+				pst.setString(1, item.getName());
+				pst.setString(2, item.getPreview_text());
+				pst.setString(3, item.getDetail_text());
+				pst.setInt(4, item.getId_cat());
+				pst.setInt(5, item.getId_new());
+				result = pst.executeUpdate();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally{
+				try {
+					pst.close();
+					conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+		}else{
+			String sql = "UPDATE "+tbName+" SET name = ?,preview_text = ?,detail_text = ?,id_cat = ?,picture = ? WHERE "+idName+" = ? LIMIT 1";
+			try {
+				pst = conn.prepareStatement(sql);
+				pst.setString(1, item.getName());
+				pst.setString(2, item.getPreview_text());
+				pst.setString(3, item.getDetail_text());
+				pst.setInt(4, item.getId_cat());
+				pst.setString(5, item.getPicture());
+				pst.setInt(6, item.getId_new());
+				result = pst.executeUpdate();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally{
+				try {
+					pst.close();
+					conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+		}
+		return result;
 	}
 }

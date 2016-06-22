@@ -27,6 +27,38 @@ public class New {
 		this.is_active = is_active;
 		this.nameCat = nameCat;
 	}
+	public New(String name, String preview_text, String detail_text, int id_cat, String picture, int read,
+			int is_active, String nameCat) {
+		super();
+		this.name = name;
+		this.preview_text = preview_text;
+		this.detail_text = detail_text;
+		this.id_cat = id_cat;
+		this.picture = picture;
+		this.read = read;
+		this.is_active = is_active;
+		this.nameCat = nameCat;
+	}
+	public New(String name, String preview_text, String detail_text, int id_cat, String picture, int read,
+			int is_active) {
+		super();
+		this.name = name;
+		this.preview_text = preview_text;
+		this.detail_text = detail_text;
+		this.id_cat = id_cat;
+		this.picture = picture;
+		this.read = read;
+		this.is_active = is_active;
+	}
+	public New(int id_new, String name, String preview_text, String detail_text, int id_cat, String picture) {
+		super();
+		this.id_new = id_new;
+		this.name = name;
+		this.preview_text = preview_text;
+		this.detail_text = detail_text;
+		this.id_cat = id_cat;
+		this.picture = picture;
+	}
 	public int getId_new() {
 		return id_new;
 	}
