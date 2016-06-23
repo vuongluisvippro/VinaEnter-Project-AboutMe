@@ -22,6 +22,13 @@ public class User {
 		this.password = password;
 		this.fullname = fullname;
 	}
+	
+	public User(int id_user, String password, String fullname) {
+		super();
+		this.id_user = id_user;
+		this.password = password;
+		this.fullname = fullname;
+	}
 	public int getId_user() {
 		return id_user;
 	}

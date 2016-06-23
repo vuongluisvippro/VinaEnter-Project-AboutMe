@@ -127,4 +127,84 @@
     <url-pattern>/admin/nguoi-dung</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>ControllerAdminAddUser</servlet-name>
+    <servlet-class>controller.ControllerAdminAddUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminAddUser</servlet-name>
+    <url-pattern>/admin/them-moi-nguoi-dung</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminEditUser</servlet-name>
+    <servlet-class>controller.ControllerAdminEditUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminEditUser</servlet-name>
+    <url-pattern>/admin/cap-nhat-nguoi-dung</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminDeleteUser</servlet-name>
+    <servlet-class>controller.ControllerAdminDeleteUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminDeleteUser</servlet-name>
+    <url-pattern>/admin/xoa-nguoi-dung</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminIndexContact</servlet-name>
+    <servlet-class>controller.ControllerAdminIndexContact</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminIndexContact</servlet-name>
+    <url-pattern>/admin/lien-he</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminDeleteContact</servlet-name>
+    <servlet-class>controller.ControllerAdminDeleteContact</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminDeleteContact</servlet-name>
+    <url-pattern>/admin/xoa-lien-he</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminIndexSay</servlet-name>
+    <servlet-class>controller.ControllerAdminIndexSay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminIndexSay</servlet-name>
+    <url-pattern>/admin/cau-noi</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminEditSay</servlet-name>
+    <servlet-class>controller.ControllerAdminEditSay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminEditSay</servlet-name>
+    <url-pattern>/admin/cap-nhat-cau-noi</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminDeleteSay</servlet-name>
+    <servlet-class>controller.ControllerAdminDeleteSay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminDeleteSay</servlet-name>
+    <url-pattern>/admin/xoa-cau-noi</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminAddSay</servlet-name>
+    <servlet-class>controller.ControllerAdminAddSay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminAddSay</servlet-name>
+    <url-pattern>/admin/them-moi-cau-noi</url-pattern>
+  </servlet-mapping>
 </web-app>

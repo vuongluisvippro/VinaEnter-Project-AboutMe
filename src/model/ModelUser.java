@@ -38,4 +38,111 @@ public class ModelUser {
 		}
 		return alItem;
 	}
+	public int addItem(User item) {
+		int result = 0;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "INSERT INTO "+tbName+"(username,password,fullname) VALUES (?,?,?)";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, item.getUsername());
+			pst.setString(2, item.getPassword());
+			pst.setString(3, item.getFullname());
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
+	public User getItem(int id) {
+		User item = null;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "SELECT * FROM "+tbName+" WHERE "+idName+" = ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+			if(rs.next()){
+				item = new User(rs.getInt("id_user"), rs.getString("username"), rs.getString("password"), rs.getString("fullname"));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				rs.close();
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}			
+		}
+		return item;
+	}
+	public int editItem(User item) {
+		int result = 0;	
+		Connection conn = mConnect.getConnectMySQL();	
+		if(item.getPassword().isEmpty()){
+			String sql = "UPDATE "+tbName+" SET fullname = ? WHERE "+idName+" = ? LIMIT 1";
+			try {
+				pst = conn.prepareStatement(sql);
+				pst.setString(1, item.getFullname());
+				pst.setInt(2, item.getId_user());
+				result = pst.executeUpdate();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally{
+				try {
+					pst.close();
+					conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+		}else{
+			String sql = "UPDATE "+tbName+" SET password = ?,fullname = ? WHERE "+idName+" = ? LIMIT 1";
+			try {
+				pst = conn.prepareStatement(sql);
+				pst.setString(1, item.getPassword());
+				pst.setString(2, item.getFullname());
+				pst.setInt(3, item.getId_user());
+				result = pst.executeUpdate();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally{
+				try {
+					pst.close();
+					conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+		}
+		return result;
+	}
+	public int delItem(int id) {
+		int result = 0;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "DELETE FROM "+tbName+" WHERE "+idName+" = ? LIMIT 1";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
 }

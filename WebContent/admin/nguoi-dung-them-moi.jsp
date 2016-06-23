@@ -1,3 +1,4 @@
+<%@page import="bean.MessageBundle"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/templates/admin/inc/header.jsp" %>
@@ -5,9 +6,20 @@
 <div class="grid_12">
 	<div class="module">
 		<%
+		 MessageBundle messageBundle = new MessageBundle();
+		 if(request.getAttribute("messageBundle")!=null){
+			 messageBundle = (MessageBundle)request.getAttribute("messageBundle");
+		 }	 
 		%>
 		 <h2><span>Thêm mới người dùng</span></h2>
 		 <div class="modul()e-body">
+		 	<%
+				if(messageBundle.getName()!=null){
+					out.print(messageBundle.getName());
+				}else if(messageBundle.getExist()!=null){
+					out.print(messageBundle.getExist());
+				}
+		 	%>
 			<form action="<%=request.getContextPath()%>/admin/them-moi-nguoi-dung" method="post" id="frmuser">
 				<p>
 					<label>Username</label>
