@@ -47,10 +47,6 @@ public class ValidateCat {
 		}
 		return checkx;
 	}
-	/**
-	 * Kiểm tra với trường hợp là người dùng muốn sữa
-	 * @param args
-	 */
 	public boolean checkNameVer(String name,int id){
 		boolean checkx = false;
 		int check = 0;

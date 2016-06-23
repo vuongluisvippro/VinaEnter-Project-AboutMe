@@ -48,25 +48,28 @@ public class ControllerAdminAddUser extends HttpServlet {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			String fullname = request.getParameter("fullname");
-			if(new ValidateUser().validateName(username)){
+			if(new ValidateUser().checkName(username)){
 				messageBundle.setExist("<b style=\"color: red\"><strong>Người dùng đã tồn tại trong hệ thống</strong></b>");
 				cont = false;
 			}
-			
-			if(!new ValidateUser().isFullName(fullname)){
+			if(new ValidateCat().validateName(fullname)){
+				messageBundle.setName("<b style=\"color: red\"><strong>Tên người dùng không chứa ký tự đặc biệt</strong></b>");
+				cont = false;
+			}
+			if(cont){
 				if(new ModelUser().addItem(new User(username,password,fullname)) > 0){
-					response.sendRedirect(request.getContextPath()+"/admin/indexUser?msg=add1");
+					response.sendRedirect(request.getContextPath()+"/admin/nguoi-dung?msg=add1");
 				}else{
-					response.sendRedirect(request.getContextPath()+"/admin/indexUser?msg=add0");
+					response.sendRedirect(request.getContextPath()+"/admin/nguoi-dung?msg=add0");
 				}
 			}else{
-				request.setAttribute("error", "User tồn tại trong hệ thống");
-				RequestDispatcher rd = request.getRequestDispatcher("/admin/addUser.jsp");
+				request.setAttribute("messageBundle", messageBundle);
+				RequestDispatcher rd = request.getRequestDispatcher("/admin/nguoi-dung-them-moi.jsp");
 				rd.forward(request, response);
 			}
 		}else{
-			RequestDispatcher rd = request.getRequestDispatcher("/admin/addUser.jsp");
-			rd.forward(request, response);
+			RequestDispatcher rdd = request.getRequestDispatcher("/admin/nguoi-dung-them-moi.jsp");
+			rdd.forward(request, response);
 		}
 	}
 }
