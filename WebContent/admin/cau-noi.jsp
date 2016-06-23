@@ -18,7 +18,7 @@
 	<div class="module">
 		<h2><span>Danh sách những câu nói hay</span></h2>
 		<%
-			ArrayList<Say> alUser = new ArrayList<Say>();
+			ArrayList<Say> alSay = new ArrayList<Say>();
 			alSay = (ArrayList<Say>)request.getAttribute("alSay");
 		%>
 		<%
@@ -55,9 +55,9 @@
 				<thead>
 					<tr>
 						<th style="width:5%; text-align: center;">ID</th>
-						<th style="width:40%">Nội dung</th>
-						<th style="width:40%">Tác giả</th>
-						<th style="width:20%">Chức năng</th>
+						<th style="width:60%">Nội dung</th>
+						<th style="width:20%">Tác giả</th>
+						<th style="width:15%">Chức năng</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -69,8 +69,8 @@
 								<td><a href="<%=request.getContextPath()%>/admin/cap-nhat-cau-noi?cid=<%=item.getId_saying()%>"><%=item.getContent()%></a></td>
 								<td><%=item.getAuthor()%></td>
 								<td align="center">
-									<a href="<%=request.getContextPath()%>/admin/editUser?cid=<%=item.getId_saying()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
-									<a onClick = "return confirm('Bạn có thực sự xóa không ?')" href="<%=request.getContextPath()%>/admin/deleteUser?cid=<%=item.getId_saying()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+									<a href="<%=request.getContextPath()%>/admin/cap-nhat-cau-noi?cid=<%=item.getId_saying()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
+									<a onClick = "return confirm('Bạn có thực sự xóa không ?')" href="<%=request.getContextPath()%>/admin/xoa-cau-noi?cid=<%=item.getId_saying()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>
 								</td>
 							</tr>
 						<%

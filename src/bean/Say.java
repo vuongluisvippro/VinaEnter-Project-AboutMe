@@ -14,6 +14,12 @@ public class Say {
 		this.content = content;
 		this.author = author;
 	}
+	
+	public Say(String content, String author) {
+		super();
+		this.content = content;
+		this.author = author;
+	}
 	public int getId_saying() {
 		return id_saying;
 	}
