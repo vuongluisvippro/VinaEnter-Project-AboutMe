@@ -185,4 +185,41 @@
     <servlet-name>ControllerAdminAddSay</servlet-name>
     <url-pattern>/admin/them-moi-cau-noi</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminAddAdvs</servlet-name>
+    <servlet-class>controller.ControllerAdminAddAdvs</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminAddAdvs</servlet-name>
+    <url-pattern>/admin/them-moi-quang-cao</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminIndexAdvs</servlet-name>
+    <servlet-class>controller.ControllerAdminIndexAdvs</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminIndexAdvs</servlet-name>
+    <url-pattern>/admin/quang-cao</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminEditAdvs</servlet-name>
+    <servlet-class>controller.ControllerAdminEditAdvs</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminEditAdvs</servlet-name>
+    <url-pattern>/admin/cap-nhat-quang-cao</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminDeleteAdvs</servlet-name>
+    <servlet-class>controller.ControllerAdminDeleteAdvs</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminDeleteAdvs</servlet-name>
+    <url-pattern>/admin/xoa-quang-cao</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

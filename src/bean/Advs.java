@@ -16,6 +16,12 @@ public class Advs {
 		this.banner = banner;
 		this.link = link;
 	}
+	public Advs(String name, String banner, String link) {
+		super();
+		this.name = name;
+		this.banner = banner;
+		this.link = link;
+	}
 	public int getId_advs() {
 		return id_advs;
 	}
