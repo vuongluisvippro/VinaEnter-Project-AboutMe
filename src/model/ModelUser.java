@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import bean.Category;
 import bean.User;
+import library.LibraryString;
 
 @SuppressWarnings("all")
 public class ModelUser {
@@ -45,7 +46,7 @@ public class ModelUser {
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, item.getUsername());
-			pst.setString(2, item.getPassword());
+			pst.setString(2, new LibraryString().md5(item.getPassword()));
 			pst.setString(3, item.getFullname());
 			result = pst.executeUpdate();
 		} catch (SQLException e) {
@@ -108,7 +109,7 @@ public class ModelUser {
 			String sql = "UPDATE "+tbName+" SET password = ?,fullname = ? WHERE "+idName+" = ? LIMIT 1";
 			try {
 				pst = conn.prepareStatement(sql);
-				pst.setString(1, item.getPassword());
+				pst.setString(1, new LibraryString().md5(item.getPassword()));
 				pst.setString(2, item.getFullname());
 				pst.setInt(3, item.getId_user());
 				result = pst.executeUpdate();
@@ -144,5 +145,30 @@ public class ModelUser {
 			}
 		}
 		return result;
+	}
+	public User getUser(String username, String password) {
+		User user = null;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "SELECT * FROM "+tbName+" WHERE username = ? && password = ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1,username);
+			pst.setString(2, new LibraryString().md5(password));
+			rs = pst.executeQuery();
+			if(rs.next()){
+				user = new User(rs.getInt("id_user"),rs.getString("username"),rs.getString("password"),rs.getString("fullname"));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				rs.close();
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}			
+		}
+		return user;
 	}
 }

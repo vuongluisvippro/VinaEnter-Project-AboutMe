@@ -10,12 +10,20 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
+    <servlet-name>ControllerAdminIndex</servlet-name>
+    <servlet-class>controller.ControllerAdminIndex</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminIndex</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ControllerAdminEditMe</servlet-name>
     <servlet-class>controller.ControllerAdminEditMe</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ControllerAdminEditMe</servlet-name>
-    <url-pattern>/admin/cap-nhat-gioi-thieu</url-pattern>
+    <url-pattern>/admin/gioi-thieu</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ControllerAdminIndexProject</servlet-name>
@@ -220,6 +228,15 @@
   <servlet-mapping>
     <servlet-name>ControllerAdminDeleteAdvs</servlet-name>
     <url-pattern>/admin/xoa-quang-cao</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminLogin</servlet-name>
+    <servlet-class>controller.ControllerAdminLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminLogin</servlet-name>
+    <url-pattern>/admin/dang-nhap</url-pattern>
   </servlet-mapping>
   
 </web-app>

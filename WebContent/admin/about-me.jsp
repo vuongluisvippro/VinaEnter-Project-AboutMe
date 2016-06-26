@@ -18,7 +18,7 @@
 		 		out.print("<p style=\"color: red\"><strong>Cập nhật thất bại</strong></p>");
 		 	}
 		 %>
-			<form action="<%=request.getContextPath()%>/admin/cap-nhat-gioi-thieu" method = "post">
+			<form action="<%=request.getContextPath()%>/admin/gioi-thieu" method = "post">
 				<p>
 					<label>Tiêu đề</label>
 					<input type="text" name="name" value="<%=me.getName()%>" class="input-medium" />

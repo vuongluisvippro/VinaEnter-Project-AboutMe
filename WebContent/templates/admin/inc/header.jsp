@@ -33,7 +33,7 @@
                         <div id="logo">
                             <ul id="nav">
                                 <li id="current"><a href="#">Quản trị</a></li>
-                                <li><a href="#">Tài khoản</a></li>
+                                <li><a href="<%=request.getContextPath()%>/admin/nguoi-dung">Tài khoản</a></li>
                             </ul>
                         </div><!-- End. #Logo -->
                     </div><!-- End. .grid_12-->
@@ -46,14 +46,14 @@
                 <div class="container_12">
                     <div class="grid_12">
                         <ul>
-                            <li><a class = "btn btn-primary" href="#">Giới thiệu</a></li>
-                            <li><a class = "btn btn-primary" href="#">Dự án thực hiện</a></li>
-                            <li><a class = "btn btn-primary" href="#">Danh mục</a></li>
-                            <li><a class = "btn btn-primary" href="#">Tin tức</a></li>
-                            <li><a class = "btn btn-primary" href="#">Người dùng</a></li>
-                            <li><a class = "btn btn-primary" href="#">Liên hệ</a></li>
-                            <li><a class = "btn btn-primary" href="#">Câu nói hay</a></li>
-                            <li><a class = "btn btn-primary" href="#">Quảng cáo</a></li>
+                            <li><a class = "btn btn-primary" href="<%=request.getContextPath()%>/admin/gioi-thieu">Giới thiệu</a></li>
+                            <li><a class = "btn btn-primary" href="<%=request.getContextPath()%>/admin/du-an">Dự án thực hiện</a></li>
+                            <li><a class = "btn btn-primary" href="<%=request.getContextPath()%>/admin/danh-muc">Danh mục</a></li>
+                            <li><a class = "btn btn-primary" href="<%=request.getContextPath()%>/admin/tin-tuc">Tin tức</a></li>
+                            <li><a class = "btn btn-primary" href="<%=request.getContextPath()%>/admin/nguoi-dung">Người dùng</a></li>
+                            <li><a class = "btn btn-primary" href="<%=request.getContextPath()%>/admin/lien-he">Liên hệ</a></li>
+                            <li><a class = "btn btn-primary" href="<%=request.getContextPath()%>/admin/cau-noi">Câu nói hay</a></li>
+                            <li><a class = "btn btn-primary" href="<%=request.getContextPath()%>/admin/quang-cao ">Quảng cáo</a></li>
                         </ul>                        
                     </div><!-- End. .grid_12-->
                 </div><!-- End. .container_12 -->
