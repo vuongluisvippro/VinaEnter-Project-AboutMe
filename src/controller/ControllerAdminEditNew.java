@@ -18,6 +18,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import bean.Category;
 import bean.New;
+import library.LibraryPermission;
 import model.ModelCategory;
 import model.ModelNew;
 
@@ -53,6 +54,9 @@ public class ControllerAdminEditNew extends HttpServlet {
 		 * Viết phương thức get data from form and insert database
 		 */
 		int id = 0;		
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("cid")!=null){
 			id = Integer.parseInt(request.getParameter("cid"));
 			request.setAttribute("itemNew", new ModelNew().getItem(id));

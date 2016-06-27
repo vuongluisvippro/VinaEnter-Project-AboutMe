@@ -1,3 +1,4 @@
+<%@page import="library.LibraryConstant"%>
 <%@page import="bean.Category"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -64,7 +65,7 @@
 						%>
 							<tr>
 								<td class="align-center"><%=item.getId_cat()%></td>
-								<td><a href=""><%=item.getName()%></a></td>
+								<td><a href="<%=request.getContextPath()%>/admin/cap-nhat-danh-muc?cid=<%=item.getId_cat()%>"><%=item.getName()%></a></td>
 								<td align="center">
 									<a href="<%=request.getContextPath()%>/admin/cap-nhat-danh-muc?cid=<%=item.getId_cat()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
 									<a onClick = "return confirm('Bạn có muốn xóa không ?')" href="<%=request.getContextPath()%>/admin/xoa-danh-muc?cid=<%=item.getId_cat()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>
@@ -79,29 +80,33 @@
 		 </div> <!-- End .module-table-body -->
 	</div> <!-- End .module -->
 		 <div class="pagination">           
-			<div class="numbers">
-				<span>Trang:</span> 
-				<a href="">1</a> 
-				<span>|</span> 
-				<a href="">2</a> 
-				<span>|</span> 
-				<span class="current">3</span> 
-				<span>|</span> 
-				<a href="">4</a> 
-				<span>|</span> 
-				<a href="">5</a> 
-				<span>|</span> 
-				<a href="">6</a> 
-				<span>|</span> 
-				<a href="">7</a>
-				<span>|</span> 
-				<a href="">8</a> 
-				<span>|</span> 
-				<a href="">9</a>
-				<span>|</span> 
-				<a href="">10</a>   
-			</div> 
-			<div style="clear: both;"></div> 
+			<%         
+				int sotrang = (Integer)request.getAttribute("sotrang");
+			 	int current_page = (Integer)request.getAttribute("current_page");
+				 	out.print("<strong>Trang: </strong>"); 
+				 	for(int i = 1;i <= sotrang;i++){
+				 		if(current_page == i){
+				 			if(i == sotrang){
+				 				%>
+				 					<a href="<%=request.getContextPath()%>/admin/danh-muc?page=<%=i%>" class="current"><%=i%></a>
+				 				<%	
+				 			}else{
+				 				%>
+				 					<a href="<%=request.getContextPath()%>/admin/danh-muc?page=<%=i%>" class="current"><%=i%></a> |
+				 				<%
+				 			}
+				 			
+				 		}else if(i == sotrang){
+				 			%>
+				 				<a href="<%=request.getContextPath()%>/admin/danh-muc?page=<%=i%>"><%=i%></a>
+				 			<%
+				 		}else{
+				 			%>
+			 					<a href="<%=request.getContextPath()%>/admin/danh-muc?page=<%=i%>"><%=i%></a> |
+			 				<%
+				 		}
+				 	}
+			 %>
 		 </div>
 	
 </div> <!-- End .grid_12 -->

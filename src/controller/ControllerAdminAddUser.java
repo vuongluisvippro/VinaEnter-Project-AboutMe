@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.MessageBundle;
 import bean.User;
+import library.LibraryPermission;
 import model.ModelUser;
 import utils.ValidateCat;
 import utils.ValidateUser;
@@ -44,6 +45,9 @@ public class ControllerAdminAddUser extends HttpServlet {
 		// TODO Auto-generated method stub
 		boolean cont = true;
 		MessageBundle messageBundle = new MessageBundle();
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("them")!=null){
 			String username = new String(request.getParameter("username").getBytes("ISO-8859-1"),"UTF-8");
 			String password = new String(request.getParameter("password").getBytes("ISO-8859-1"),"UTF-8");

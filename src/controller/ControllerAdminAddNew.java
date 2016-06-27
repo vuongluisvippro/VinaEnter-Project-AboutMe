@@ -18,6 +18,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 
 import bean.New;
+import library.LibraryPermission;
 import model.ModelCategory;
 import model.ModelNew;
 
@@ -49,6 +50,9 @@ public class ControllerAdminAddNew extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if("load".equals(request.getParameter("type"))){
 			request.setAttribute("alCat", new ModelCategory().getList());
 			RequestDispatcher rd = request.getRequestDispatcher("/admin/tin-tuc-them-moi.jsp");

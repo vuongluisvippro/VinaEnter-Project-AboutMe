@@ -2,25 +2,27 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import library.LibraryPermission;
-import model.ModelProject;
+import bean.User;
+import model.ModelUser;
 
 /**
  * Servlet implementation class ControllerPublicIndex
  */
 @SuppressWarnings("all")
-public class ControllerAdminDeleteProject extends HttpServlet {
+public class ControllerAdminLogout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ControllerAdminDeleteProject() {
+    public ControllerAdminLogout() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,21 +40,9 @@ public class ControllerAdminDeleteProject extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/**
-		 * form web.xml => deleteCat 
-		 */
-		if(!LibraryPermission.isLogin(request, response)){
-			return;
-		}
-		if(request.getParameter("cid")!=null){
-			int id = Integer.parseInt(request.getParameter("cid"));
-			if(new ModelProject().delItem(id) > 0){
-				// Xóa thành công
-				response.sendRedirect(request.getContextPath()+"/admin/du-an?msg=del1");
-			}else{
-				// Xóa thất bại
-				response.sendRedirect(request.getContextPath()+"/admin/du-an?msg=del0");
-			}
-		}
+		HttpSession session = request.getSession();
+		session.removeAttribute("objUser");
+		response.sendRedirect(request.getContextPath()+"/trang-chu");
+		return;
 	}
 }

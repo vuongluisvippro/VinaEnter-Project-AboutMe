@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import bean.Advs;
 import bean.Category;
+import bean.New;
 import bean.User;
 
 @SuppressWarnings("all")
@@ -152,5 +153,55 @@ public class ModelAdvs {
 			}
 		}
 		return result;
+	}
+
+	public int getSum() {
+		int sodong = 0;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "SELECT COUNT("+idName+") AS sodong FROM "+tbName;
+		try {
+			pst = conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if(rs.next()){
+				sodong = rs.getInt("sodong");
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				rs.close();
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}			
+		}
+		return sodong;
+	}
+
+	public ArrayList<Advs> getListForPagination(int offset, int rowCount) {
+		ArrayList<Advs> alItem = new ArrayList<Advs>();
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "SELECT * FROM "+tbName+" LIMIT ?, ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, offset);
+			pst.setInt(2, rowCount);			
+			rs = pst.executeQuery();
+			while(rs.next()){
+				alItem.add(new Advs(rs.getInt("id_advs"), rs.getString("name"), rs.getString("banner"), rs.getString("link")));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				rs.close();
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}			
+		}
+		return alItem;
 	}
 }

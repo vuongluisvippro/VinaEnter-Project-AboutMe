@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Me;
+import library.LibraryPermission;
 import model.ModelMe;
 
 /**
@@ -40,6 +41,9 @@ public class ControllerAdminEditMe extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		request.setAttribute("item", new ModelMe().getItem());
 		if(request.getParameter("capnhat")!=null){
 			int  id_aboutme = new ModelMe().getItem().getId_aboutme();

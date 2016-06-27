@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.MessageBundle;
 import bean.User;
+import library.LibraryPermission;
 import model.ModelUser;
 
 /**

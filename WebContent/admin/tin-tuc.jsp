@@ -104,7 +104,7 @@
 							%>
 								<tr>
 									<td class="align-center"><%=item.getId_new()%></td>
-									<td><a href=""><%=item.getName()%></a></td>
+									<td><a href="<%=request.getContextPath()%>/admin/cap-nhat-tin-tuc?cid=<%=item.getId_new()%>"><%=item.getName()%></a></td>
 									<td><%=item.getNameCat()%></td>
 									<td></td>
 									<td class="align-center"><img src="<%=request.getContextPath()%>/files/<%=item.getPicture()%>" alt ="" width="100px" height="100px"></td>
@@ -124,30 +124,34 @@
 				</form>
 			 </div> <!-- End .module-table-body -->
 		</div> <!-- End .module -->
-			 <div class="pagination">           
-				<div class="numbers">
-					<span>Trang:</span> 
-					<a href="">1</a> 
-					<span>|</span> 
-					<a href="">2</a> 
-					<span>|</span> 
-					<span class="current">3</span> 
-					<span>|</span> 
-					<a href="">4</a> 
-					<span>|</span> 
-					<a href="">5</a> 
-					<span>|</span> 
-					<a href="">6</a> 
-					<span>|</span> 
-					<a href="">7</a>
-					<span>|</span> 
-					<a href="">8</a> 
-					<span>|</span> 
-					<a href="">9</a>
-					<span>|</span> 
-					<a href="">10</a>   
-				</div> 
-				<div style="clear: both;"></div> 
+			 <div class="pagination">  
+			 <%         
+				int sotrang = (Integer)request.getAttribute("sotrang");
+			 	int current_page = (Integer)request.getAttribute("current_page");
+			 	out.print("<strong>Trang: </strong>"); 
+			 	for(int i = 1;i <= sotrang;i++){
+			 		if(current_page == i){
+			 			if(i == sotrang){
+			 				%>
+			 					<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>" class="current"><%=i%></a>
+			 				<%	
+			 			}else{
+			 				%>
+			 					<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>" class="current"><%=i%></a> |
+			 				<%
+			 			}
+			 			
+			 		}else if(i == sotrang){
+			 			%>
+			 				<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>"><%=i%></a>
+			 			<%
+			 		}else{
+			 			%>
+		 					<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>"><%=i%></a> |
+		 				<%
+			 		}
+			 	}
+			 %>
 			 </div>
 	</div> <!-- End .grid_12 -->
 <%@include file="/templates/admin/inc/footer.jsp" %> 

@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import bean.Category;
+import bean.New;
 
 @SuppressWarnings("all")
 public class ModelCategory {
@@ -125,5 +126,53 @@ public class ModelCategory {
 			}
 		}
 		return result;
+	}
+	public int getSum() {
+		int sodong = 0;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "SELECT COUNT("+idName+") AS sodong FROM "+tbName;
+		try {
+			pst = conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if(rs.next()){
+				sodong = rs.getInt("sodong");
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				rs.close();
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}			
+		}
+		return sodong;
+	}
+	public ArrayList<Category> getListForPagination(int offset, int rowCount) {
+		ArrayList<Category> alItem = new ArrayList<Category>();
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "SELECT * FROM "+tbName+" LIMIT ?, ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, offset);
+			pst.setInt(2, rowCount);			
+			rs = pst.executeQuery();
+			while(rs.next()){
+				alItem.add(new Category(rs.getInt("id_cat"), rs.getString("name")));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				rs.close();
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}			
+		}
+		return alItem;
 	}
 }

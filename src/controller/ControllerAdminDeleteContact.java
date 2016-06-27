@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import library.LibraryPermission;
 import model.ModelContact;
 
 /**
@@ -36,6 +37,9 @@ public class ControllerAdminDeleteContact extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("cid")!=null){
 			int id = Integer.parseInt(request.getParameter("cid"));
 			if(new ModelContact().delItem(id) > 0){

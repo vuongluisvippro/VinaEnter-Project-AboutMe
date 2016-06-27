@@ -1,3 +1,4 @@
+<%@page import="library.LibraryConstant"%>
 <%@page import="bean.User"%>
 <%@page import="bean.Category"%>
 <%@page import="java.util.ArrayList"%>
@@ -83,29 +84,33 @@
 		 </div> <!-- End .module-table-body -->
 	</div> <!-- End .module -->
 		 <div class="pagination">           
-			<div class="numbers">
-				<span>Trang:</span> 
-				<a href="">1</a> 
-				<span>|</span> 
-				<a href="">2</a> 
-				<span>|</span> 
-				<span class="current">3</span> 
-				<span>|</span> 
-				<a href="">4</a> 
-				<span>|</span> 
-				<a href="">5</a> 
-				<span>|</span> 
-				<a href="">6</a> 
-				<span>|</span> 
-				<a href="">7</a>
-				<span>|</span> 
-				<a href="">8</a> 
-				<span>|</span> 
-				<a href="">9</a>
-				<span>|</span> 
-				<a href="">10</a>   
-			</div> 
-			<div style="clear: both;"></div> 
+			<%         
+				int sotrang = (Integer)request.getAttribute("sotrang");
+			 	int current_page = (Integer)request.getAttribute("current_page");
+				 	out.print("<strong>Trang: </strong>"); 
+				 	for(int i = 1;i <= sotrang;i++){
+				 		if(current_page == i){
+				 			if(i == sotrang){
+				 				%>
+				 					<a href="<%=request.getContextPath()%>/admin/nguoi-dung?page=<%=i%>" class="current"><%=i%></a>
+				 				<%	
+				 			}else{
+				 				%>
+				 					<a href="<%=request.getContextPath()%>/admin/nguoi-dung?page=<%=i%>" class="current"><%=i%></a> |
+				 				<%
+				 			}
+				 			
+				 		}else if(i == sotrang){
+				 			%>
+				 				<a href="<%=request.getContextPath()%>/admin/nguoi-dung?page=<%=i%>"><%=i%></a>
+				 			<%
+				 		}else{
+				 			%>
+			 					<a href="<%=request.getContextPath()%>/admin/nguoi-dung?page=<%=i%>"><%=i%></a> |
+			 				<%
+				 		}
+				 	}
+			 %>
 		 </div>
 	
 </div> <!-- End .grid_12 -->

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Category;
 import bean.MessageBundle;
+import library.LibraryPermission;
 import model.ModelCategory;
 import utils.ValidateCat;
 
@@ -48,6 +49,9 @@ public class ControllerAdminEditCat extends HttpServlet {
 		int id = 0;
 		MessageBundle messageBundle = new MessageBundle();
 		boolean cont = true;
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("cid")!=null){
 			id = Integer.parseInt(request.getParameter("cid"));
 			request.setAttribute("item", new ModelCategory().getItem(id));

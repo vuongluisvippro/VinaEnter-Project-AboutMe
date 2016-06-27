@@ -8,7 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import library.LibraryConstant;
+import library.LibraryPagination;
+import library.LibraryPermission;
 import model.ModelSay;
+import model.ModelUser;
 
 /**
  * Servlet implementation class ControllerPublicIndex
@@ -38,7 +42,17 @@ public class ControllerAdminIndexSay extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("alSay", new ModelSay().getList());
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
+		// Bước 1: Tính tổng số trang
+		request.setAttribute("sotrang", new LibraryPagination().getNumberPage(new ModelSay().getSum()));
+		// Bước 2: Xác định trang hiện tại
+		int current_page = new LibraryPagination().getCurrentPage(request.getParameter("page"));
+		request.setAttribute("current_page", current_page);
+		// Bước 3: Tính vị trí offset
+		int offset = new LibraryPagination().getOffset(current_page);
+		request.setAttribute("alSay",new ModelSay().getListForPagination(offset,LibraryConstant.ROW_COUNT));
 		RequestDispatcher rd = request.getRequestDispatcher("/admin/cau-noi.jsp");
 		rd.forward(request, response);
 	}

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.MessageBundle;
 import bean.User;
+import library.LibraryPermission;
 import model.ModelUser;
 import utils.ValidateCat;
 import utils.ValidateUser;
@@ -45,6 +46,9 @@ public class ControllerAdminEditUser extends HttpServlet {
 		int id = 0;
 		boolean cont = true;
 		MessageBundle messageBundle = new MessageBundle();
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("cid")!=null){
 			id = Integer.parseInt(request.getParameter("cid"));
 			request.setAttribute("item", new ModelUser().getItem(id));

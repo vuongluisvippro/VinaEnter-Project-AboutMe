@@ -18,6 +18,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import bean.Advs;
 import bean.MessageBundle;
+import library.LibraryPermission;
 import model.ModelAdvs;
 import utils.ValidateAdvs;
 
@@ -55,6 +56,9 @@ public class ControllerAdminEditAdvs extends HttpServlet {
 		boolean cont = true;
 		MessageBundle messageBundle = new MessageBundle();
 		int id = 0;		
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("cid")!=null){
 			id = Integer.parseInt(request.getParameter("cid"));
 			request.setAttribute("item", new ModelAdvs().getItem(id));

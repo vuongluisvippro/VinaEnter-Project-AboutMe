@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import library.LibraryPermission;
 import model.ModelCategory;
 
 /**
@@ -38,6 +39,9 @@ public class ControllerAdminDeleteCat extends HttpServlet {
 		/**
 		 * form web.xml => deleteCat 
 		 */
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("cid")!=null){
 			int id = Integer.parseInt(request.getParameter("cid"));
 			if(new ModelCategory().delItem(id) > 0){

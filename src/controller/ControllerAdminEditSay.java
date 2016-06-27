@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.MessageBundle;
 import bean.Say;
+import library.LibraryPermission;
 import model.ModelSay;
 import utils.ValidateSay;
 
@@ -44,6 +45,9 @@ public class ControllerAdminEditSay extends HttpServlet {
 		int id = 0;
 		boolean cont = true;
 		MessageBundle messageBundle = new MessageBundle();
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("cid")!=null){
 			id = Integer.parseInt(request.getParameter("cid"));
 			request.setAttribute("item", new ModelSay().getItem(id));

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.MessageBundle;
 import bean.Say;
+import library.LibraryPermission;
 import model.ModelSay;
 import utils.ValidateSay;
 
@@ -43,6 +44,9 @@ public class ControllerAdminAddSay extends HttpServlet {
 		// TODO Auto-generated method stub
 		boolean cont = true;
 		MessageBundle messageBundle = new MessageBundle();
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("them")!=null){
 			String content = new String(request.getParameter("content").getBytes("ISO-8859-1"),"UTF-8");
 			String author = new String(request.getParameter("author").getBytes("ISO-8859-1"),"UTF-8");

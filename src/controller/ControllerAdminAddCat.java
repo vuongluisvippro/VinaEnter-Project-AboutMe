@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Category;
 import bean.MessageBundle;
+import library.LibraryPermission;
 import model.ModelCategory;
 import utils.ValidateCat;
 
@@ -19,7 +20,7 @@ import utils.ValidateCat;
 @SuppressWarnings("all")
 public class ControllerAdminAddCat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+      
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -43,6 +44,9 @@ public class ControllerAdminAddCat extends HttpServlet {
 		// TODO Auto-generated method stub
 		boolean cont = true;
 		MessageBundle messageBundle = new MessageBundle();
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("them")!=null){
 			String name = new String(request.getParameter("name").getBytes("ISO-8859-1"),"UTF-8"); 
 			if(new ValidateCat().checkName(name)){

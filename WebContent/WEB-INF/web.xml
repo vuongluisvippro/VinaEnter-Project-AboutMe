@@ -50,6 +50,14 @@
     <url-pattern>/admin/them-moi-du-an</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>ControllerAdminDeleteProject</servlet-name>
+    <servlet-class>controller.ControllerAdminDeleteProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminDeleteProject</servlet-name>
+    <url-pattern>/admin/xoa-du-an</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ControllerAdminIndexCat</servlet-name>
     <servlet-class>controller.ControllerAdminIndexCat</servlet-class>
   </servlet>
@@ -237,6 +245,15 @@
   <servlet-mapping>
     <servlet-name>ControllerAdminLogin</servlet-name>
     <url-pattern>/admin/dang-nhap</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ControllerAdminLogout</servlet-name>
+    <servlet-class>controller.ControllerAdminLogout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAdminLogout</servlet-name>
+    <url-pattern>/admin/dang-xuat</url-pattern>
   </servlet-mapping>
   
 </web-app>

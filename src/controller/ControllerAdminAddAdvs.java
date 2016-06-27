@@ -19,6 +19,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import bean.Advs;
 import bean.MessageBundle;
+import library.LibraryPermission;
 import model.ModelAdvs;
 import utils.ValidateAdvs;
 
@@ -52,6 +53,9 @@ public class ControllerAdminAddAdvs extends HttpServlet {
 		// TODO Auto-generated method stub
 		boolean cont = true;
 		MessageBundle messageBundle = new MessageBundle();
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if("load".equals(request.getParameter("type"))){
 			RequestDispatcher rd = request.getRequestDispatcher("/admin/quang-cao-them-moi.jsp");
 			rd.forward(request, response);

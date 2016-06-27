@@ -17,6 +17,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 
 import bean.Project;
+import library.LibraryPermission;
 import model.ModelProject;
 
 /**
@@ -51,6 +52,9 @@ public class ControllerAdminEditProject extends HttpServlet {
 		 * Viết phương thức get data from form and insert database
 		 */
 		int id_project = 0;		
+		if(!LibraryPermission.isLogin(request, response)){
+			return;
+		}
 		if(request.getParameter("cid")!=null){
 			id_project = Integer.parseInt(request.getParameter("cid"));
 			request.setAttribute("item", new ModelProject().getItem(id_project));
