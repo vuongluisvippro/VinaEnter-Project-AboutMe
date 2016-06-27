@@ -20,6 +20,15 @@ public class Contact {
 		this.phone = phone;
 		this.content = content;
 	}
+	
+	public Contact(String fullname, String email, String address, int phone, String content) {
+		super();
+		this.fullname = fullname;
+		this.email = email;
+		this.address = address;
+		this.phone = phone;
+		this.content = content;
+	}
 	public int getId_contact() {
 		return id_contact;
 	}

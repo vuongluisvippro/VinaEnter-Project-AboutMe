@@ -1,3 +1,7 @@
+<%@page import="bean.Project"%>
+<%@page import="bean.Say"%>
+<%@page import="bean.Advs"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@include file="templates/public/inc/header.jsp" %>
@@ -5,55 +9,31 @@
 		<div class="content">
 			<div id="blog">
 				<h2>Các dự án đã thực hiện</h2>
+				<%
+					ArrayList<Project> alProject = new ArrayList<Project>();
+					if(request.getAttribute("alProject")!=null){
+						alProject = (ArrayList<Project>)request.getAttribute("alProject");
+					}
+				%>
 				<ul>
-					<li>
-						<div class="article">
-							<h3>Website báo chí VNTimes</h3>
-							<p>
-								Trang web báo chí Đà Nẵng, cập nhật những tin tức liên quan đến kinh tế, chính trị,  giải trí Việt Nam...								
-							</p>
-							<a href="http://vinaenter.edu.vn" class="more" target="_blank">Truy cập trang này</a>
-						</div>
-						<div class="stats">
-							<a href="http://vinaenter.edu.vn" class="more" target="_blank"><img src="<%=request.getContextPath()%>/templates/public/images/project.jpg" alt="" /></a>
-						</div>
-					</li>
-					<li>
-						<div class="article">
-							<h3>Website báo chí VNTimes</h3>
-							<p>
-								Trang web báo chí Đà Nẵng, cập nhật những tin tức liên quan đến kinh tế, chính trị,  giải trí Việt Nam...								
-							</p>
-							<a href="http://vinaenter.edu.vn" class="more" target="_blank">Truy cập trang này</a>
-						</div>
-						<div class="stats">
-							<a href="http://vinaenter.edu.vn" class="more" target="_blank"><img src="<%=request.getContextPath()%>/templates/public/images/project.jpg" alt="" /></a>
-						</div>
-					</li>
-					<li>
-						<div class="article">
-							<h3>Website báo chí VNTimes</h3>
-							<p>
-								Trang web báo chí Đà Nẵng, cập nhật những tin tức liên quan đến kinh tế, chính trị,  giải trí Việt Nam...								
-							</p>
-							<a href="http://vinaenter.edu.vn" class="more" target="_blank">Truy cập trang này</a>
-						</div>
-						<div class="stats">
-							<a href="http://vinaenter.edu.vn" class="more" target="_blank"><img src="<%=request.getContextPath()%>/templates/public/images/project.jpg" alt="" /></a>
-						</div>
-					</li>
-					<li>
-						<div class="article">
-							<h3>Website báo chí VNTimes</h3>
-							<p>
-								Trang web báo chí Đà Nẵng, cập nhật những tin tức liên quan đến kinh tế, chính trị,  giải trí Việt Nam...								
-							</p>
-							<a href="http://vinaenter.edu.vn" class="more" target="_blank">Truy cập trang này</a>
-						</div>
-						<div class="stats">
-							<a href="http://vinaenter.edu.vn" class="more" target="_blank"><img src="<%=request.getContextPath()%>/templates/public/images/project.jpg" alt="" /></a>
-						</div>
-					</li>
+				<%
+					for(Project item : alProject){
+						%>
+							<li>
+								<div class="article">
+									<h3><%=item.getName()%></h3>
+									<p>
+										<%=item.getPreview_text()%>								
+									</p>
+									<a href="<%=item.getLink()%>" class="more" target="_blank">Truy cập trang này</a>
+								</div>
+								<div class="stats">
+									<a href="<%=item.getLink()%>" class="more" target="_blank"><img src="<%=request.getContextPath()%>/files/<%=item.getPicture()%>" alt="" /></a>
+								</div>
+							</li>
+						<%
+					}
+				%>
 				</ul>
 				<ul class="paging">
 					<li class="first">
@@ -77,39 +57,46 @@
 			<div id="sidebar">
 				<div class="testimonials">
 					<h3>Những câu nói hay</h3>
+					<%
+						ArrayList<Say> alSay = new ArrayList<Say>();
+						if(request.getAttribute("alSay")!=null){
+							alSay = (ArrayList<Say>)request.getAttribute("alSay");
+						}
+					%>
 					<ul>
-						<li>
-							<p>
-								Nếu bạn luôn buồn phiền, hãy dùng hy vọng để chữa trị; hạnh phúc lớn nhất của nhân loại chính là biết hi vọng
-							</p>
-							<span class="author">- Khuyết danh</span>
-						</li>
-						<li>
-							<p>
-								Cuộc sống vẫn vậy nếu nó lấy đi thứ gì của bạn, thì thế nào nó cũng bù lại cho bạn thứ khác, chỉ có điều là bạn có chịu đi tìm hay không thôi
-							</p>
-							<span class="author">- Hạt giống tâm hồn</span>
-						</li>
-						<li>
-							<p>
-								Kẻ khốn cùng nhất trên thế giới này không phải là người không có một đồng xu dính túi, mà là kẻ không có nổi một ước mơ
-							</p>
-							<span class="author">- SơnTV</span>
-						</li>
+					<%
+						for(Say item : alSay){
+							%>
+								<li>
+									<p>
+										<%=item.getContent()%>
+									</p>
+									<span class="author"><%=item.getAuthor()%></span>
+								</li>	
+							<%
+						}
+					%>
 					</ul>
 				</div>
 				<div class="awards">
-					<h3>Quảng cáo</h3>
-					<a href="#" class="first">
-						<img src="<%=request.getContextPath()%>/templates/public/images/hehocgi.png" alt="" />
-					</a>
-					<a href="#" class="first">
-						<img src="<%=request.getContextPath()%>/templates/public/images/java.png" alt="" />
-					</a>
+					<%
+					ArrayList<Advs> alAdvs = new ArrayList<Advs>();
+						if(request.getAttribute("alAdvs")!=null){
+							alAdvs = (ArrayList<Advs>)request.getAttribute("alAdvs");
+						}
+					%>
+						<h3>Quảng cáo</h3>
+						<%
+							for(Advs item : alAdvs){
+								%>
+									<a href="<%=item.getLink()%>" class="first" target="blank">
+										<img src="<%=request.getContextPath()%>/files/<%=item.getBanner()%>" alt="" />
+									</a>
+								<%
+							}
+						%>
 				</div>
 			</div>
-			
-			
 		</div>
 	</div>
    <%@include file="templates/public/inc/footer.jsp" %>

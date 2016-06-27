@@ -201,7 +201,6 @@
     <servlet-name>ControllerAdminAddSay</servlet-name>
     <url-pattern>/admin/them-moi-cau-noi</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ControllerAdminAddAdvs</servlet-name>
     <servlet-class>controller.ControllerAdminAddAdvs</servlet-class>
@@ -210,7 +209,6 @@
     <servlet-name>ControllerAdminAddAdvs</servlet-name>
     <url-pattern>/admin/them-moi-quang-cao</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ControllerAdminIndexAdvs</servlet-name>
     <servlet-class>controller.ControllerAdminIndexAdvs</servlet-class>
@@ -219,7 +217,6 @@
     <servlet-name>ControllerAdminIndexAdvs</servlet-name>
     <url-pattern>/admin/quang-cao</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ControllerAdminEditAdvs</servlet-name>
     <servlet-class>controller.ControllerAdminEditAdvs</servlet-class>
@@ -228,7 +225,6 @@
     <servlet-name>ControllerAdminEditAdvs</servlet-name>
     <url-pattern>/admin/cap-nhat-quang-cao</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ControllerAdminDeleteAdvs</servlet-name>
     <servlet-class>controller.ControllerAdminDeleteAdvs</servlet-class>
@@ -237,7 +233,6 @@
     <servlet-name>ControllerAdminDeleteAdvs</servlet-name>
     <url-pattern>/admin/xoa-quang-cao</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ControllerAdminLogin</servlet-name>
     <servlet-class>controller.ControllerAdminLogin</servlet-class>
@@ -246,7 +241,6 @@
     <servlet-name>ControllerAdminLogin</servlet-name>
     <url-pattern>/admin/dang-nhap</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ControllerAdminLogout</servlet-name>
     <servlet-class>controller.ControllerAdminLogout</servlet-class>
@@ -255,5 +249,52 @@
     <servlet-name>ControllerAdminLogout</servlet-name>
     <url-pattern>/admin/dang-xuat</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <servlet-name>ControllerPublicContact</servlet-name>
+    <servlet-class>controller.ControllerPublicContact</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerPublicContact</servlet-name>
+    <url-pattern>/lien-he</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ControllerPublicNew</servlet-name>
+    <servlet-class>controller.ControllerPublicNew</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerPublicNew</servlet-name>
+    <url-pattern>/tin-tuc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ControllerPublicProject</servlet-name>
+    <servlet-class>controller.ControllerPublicProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerPublicProject</servlet-name>
+    <url-pattern>/du-an</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ControllerPublicIntro</servlet-name>
+    <servlet-class>controller.ControllerPublicIntro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerPublicIntro</servlet-name>
+    <url-pattern>/gioi-thieu</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ControllerPublicIndex</servlet-name>
+    <servlet-class>controller.ControllerPublicIndex</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerPublicIndex</servlet-name>
+    <url-pattern>/trang-chu</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>ControllerPublicDetailNew</servlet-name>
+      <servlet-class>controller.ControllerPublicDetailNew</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>ControllerPublicDetailNew</servlet-name>
+      <url-pattern>/chi-tiet</url-pattern>
+  </servlet-mapping>
 </web-app>

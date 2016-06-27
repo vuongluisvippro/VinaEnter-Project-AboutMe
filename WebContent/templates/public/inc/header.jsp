@@ -14,25 +14,25 @@
 	<div id="header">
 		<div>
 			<div>
-				<span>Trần Nguyễn Gia Huy</span>
+				<span>Nguyễn Văn Vương</span>
 				<a href="index.html" class="logo"><img src="<%=request.getContextPath()%>/templates/public/images/logo.png" alt=""></a>
 				<span class="tagline">Mỗi ngày là một món quà</span>
 			</div>
 			<ul>
 				<li class="selected">
-					<a href="index.html">Trang chủ</a>
+					<a href="<%=request.getContextPath()%>/trang-chu">Trang chủ</a>
 				</li>
 				<li>
-					<a href="about.html">Giới thiệu</a>
+					<a href="<%=request.getContextPath()%>/gioi-thieu">Giới thiệu</a>
 				</li>
 				<li>
-					<a href="projects.html">Dự án thực hiện</a>
+					<a href="<%=request.getContextPath()%>/du-an">Dự án thực hiện</a>
 				</li>
 				<li>
-					<a href="news.html">Tin tức</a>
+					<a href="<%=request.getContextPath()%>/tin-tuc">Tin tức</a>
 				</li>
 				<li>
-					<a href="contact.html">Liên hệ</a>
+					<a href="<%=request.getContextPath()%>/lien-he">Liên hệ</a>
 				</li>
 			</ul>
 		</div>

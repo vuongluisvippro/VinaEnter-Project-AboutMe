@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import bean.Category;
 import bean.Contact;
 import bean.New;
+import library.LibraryString;
 
 @SuppressWarnings("all")
 public class ModelContact {
@@ -102,5 +103,30 @@ public class ModelContact {
 			}			
 		}
 		return alItem;
+	}
+
+	public int addContact(Contact item) {
+		int result = 0;
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "INSERT INTO "+tbName+"(fullname,email,address,phone,content) VALUES (?,?,?,?,?)";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, item.getFullname());
+			pst.setString(2, item.getEmail());
+			pst.setString(3, item.getAddress());
+			pst.setInt(4, item.getPhone());
+			pst.setString(5, item.getContent());
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
 	}
 }
