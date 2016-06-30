@@ -21,7 +21,7 @@
 		  %>
 		  <div class="clear"></div>
 	</div>
-	<form id="frmTimKiem" method="post" action="" style="padding-bottom:18px">
+	<form id="frmTimKiem" method="post" action="<%=request.getContextPath()%>/admin/tin-tuc" style="padding-bottom:18px">
 		Tiêu đề: 
 		<input type="search" value="" size="34" placeholder="Từ khóa tin tức" name="searchName"/>
 		Danh mục:  
@@ -37,7 +37,7 @@
 		</select>
 		Trạng thái:
 		<select name="searchActive">
-			<option value="all">Tất cả</option>
+			<option value="">Tất cả</option>
 			<option value="active">Kích hoạt</option>
 			<option value="noactive">Không kích hoạt</option>
 		</select>
@@ -48,10 +48,6 @@
 		<!-- Example table -->
 		<div class="module">
 			<h2><span>Danh sách tin tức</span></h2>
-			<%
-				ArrayList<New> alNew = new ArrayList<New>();
-				alNew = (ArrayList<New>)request.getAttribute("alNew");
-			%>
 			<%
 				if(request.getParameter("msg")!=null){
 					String msg = request.getParameter("msg");
@@ -80,78 +76,133 @@
 					}
 				}
 			%>
-			<div class="module-table-body">
-				<form action="">
-				<table id="myTable" class="tablesorter">
-					<thead>
-						<tr>
-							<th style="width:5%; text-align: center;">ID</th>
-							<th style="width:30%">Tên Tin Tức</th>
-							<th style="width:30%">Danh Mục</th>
-							<th style="width:5%">Trạng thái</th>
-							<th style="width:10%">Hình ảnh</th>
-							<th style="width:10%">Chức năng</th>
-							<th style="widht:10%">
-								Chọn: 
-								<input type="checkbox" value="" name="chkAll">
-								<input type="submit" value="Xóa" name="dels">
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-					<%
-						for(New item : alNew){
-							%>
-								<tr>
-									<td class="align-center"><%=item.getId_new()%></td>
-									<td><a href="<%=request.getContextPath()%>/admin/cap-nhat-tin-tuc?cid=<%=item.getId_new()%>"><%=item.getName()%></a></td>
-									<td><%=item.getNameCat()%></td>
-									<td></td>
-									<td class="align-center"><img src="<%=request.getContextPath()%>/files/<%=item.getPicture()%>" alt ="" width="100px" height="100px"></td>
-									<td align="center">
-										<a href="<%=request.getContextPath()%>/admin/cap-nhat-tin-tuc?cid=<%=item.getId_new()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
-										<a onClick = "return confirm('Bạn có thực sự xóa không ?')" href="<%=request.getContextPath()%>/admin/xoa-tin-tuc?cid=<%=item.getId_new()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>
-									</td>
-									<td align="center">
-										<input type="checkbox" value="<%=item.getId_new()%>">
-									</td>
-								</tr>
-							<%
-						}
+			<%
+				ArrayList<New> alNew = new ArrayList<New>();
+				if(request.getAttribute("alNew")!=null){
+					alNew = (ArrayList<New>)request.getAttribute("alNew");	
 					%>
-					</tbody>
-				</table>
-				</form>
-			 </div> <!-- End .module-table-body -->
-		</div> <!-- End .module -->
-			 <div class="pagination">  
-			 <%         
-				int sotrang = (Integer)request.getAttribute("sotrang");
-			 	int current_page = (Integer)request.getAttribute("current_page");
-			 	out.print("<strong>Trang: </strong>"); 
-			 	for(int i = 1;i <= sotrang;i++){
-			 		if(current_page == i){
-			 			if(i == sotrang){
-			 				%>
-			 					<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>" class="current"><%=i%></a>
-			 				<%	
-			 			}else{
-			 				%>
-			 					<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>" class="current"><%=i%></a> |
-			 				<%
-			 			}
-			 			
-			 		}else if(i == sotrang){
-			 			%>
-			 				<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>"><%=i%></a>
-			 			<%
-			 		}else{
-			 			%>
-		 					<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>"><%=i%></a> |
-		 				<%
-			 		}
-			 	}
-			 %>
-			 </div>
+						<div class="module-table-body">
+						<form action="">
+						<table id="myTable" class="tablesorter">
+							<thead>
+								<tr>
+									<th style="width:5%; text-align: center;">ID</th>
+									<th style="width:30%">Tên Tin Tức</th>
+									<th style="width:30%">Danh Mục</th>
+									<th style="width:5%">Trạng thái</th>
+									<th style="width:10%">Hình ảnh</th>
+									<th style="width:10%">Chức năng</th>
+									<th style="widht:10%">
+										Chọn: 
+										<input type="checkbox" value="" name="chkAll">
+										<input type="submit" value="Xóa" name="dels">
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+							<%
+								for(New item : alNew){
+									%>
+										<tr>
+											<td class="align-center"><%=item.getId_new()%></td>
+											<td><a href="<%=request.getContextPath()%>/admin/cap-nhat-tin-tuc?cid=<%=item.getId_new()%>"><%=item.getName()%></a></td>
+											<td><%=item.getNameCat()%></td>
+											<td></td>
+											<td class="align-center"><img src="<%=request.getContextPath()%>/files/<%=item.getPicture()%>" alt ="" width="100px" height="100px"></td>
+											<td align="center">
+												<a href="<%=request.getContextPath()%>/admin/cap-nhat-tin-tuc?cid=<%=item.getId_new()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
+												<a onClick = "return confirm('Bạn có thực sự xóa không ?')" href="<%=request.getContextPath()%>/admin/xoa-tin-tuc?cid=<%=item.getId_new()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+											</td>
+											<td align="center">
+												<input type="checkbox" value="<%=item.getId_new()%>">
+											</td>
+										</tr>
+									<%
+								}
+							%>
+							</tbody>
+						</table>
+						</form>
+					 </div> <!-- End .module-table-body -->
+				</div> <!-- End .module -->
+					 <div class="pagination">  
+					 <%         
+						int sotrang = (Integer)request.getAttribute("sotrang");
+					 	int current_page = (Integer)request.getAttribute("current_page");
+					 	out.print("<strong>Trang: </strong>"); 
+					 	for(int i = 1;i <= sotrang;i++){
+					 		if(current_page == i){
+					 			if(i == sotrang){
+					 				%>
+					 					<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>" class="current"><%=i%></a>
+					 				<%	
+					 			}else{
+					 				%>
+					 					<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>" class="current"><%=i%></a> |
+					 				<%
+					 			}
+					 			
+					 		}else if(i == sotrang){
+					 			%>
+					 				<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>"><%=i%></a>
+					 			<%
+					 		}else{
+					 			%>
+				 					<a href="<%=request.getContextPath()%>/admin/tin-tuc?page=<%=i%>"><%=i%></a> |
+				 				<%
+					 		}
+					 	}
+					 %>
+					 </div>
+					<%
+				}else if(request.getAttribute("listSearch")!=null){
+					alNew = (ArrayList<New>)request.getAttribute("listSearch");
+					%>
+						<div class="module-table-body">
+						<form action="">
+						<table id="myTable" class="tablesorter">
+							<thead>
+								<tr>
+									<th style="width:5%; text-align: center;">ID</th>
+									<th style="width:30%">Tên Tin Tức</th>
+									<th style="width:30%">Danh Mục</th>
+									<th style="width:5%">Trạng thái</th>
+									<th style="width:10%">Hình ảnh</th>
+									<th style="width:10%">Chức năng</th>
+									<th style="widht:10%">
+										Chọn: 
+										<input type="checkbox" value="" name="chkAll">
+										<input type="submit" value="Xóa" name="dels">
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+							<%
+								for(New item : alNew){
+									%>
+										<tr>
+											<td class="align-center"><%=item.getId_new()%></td>
+											<td><a href="<%=request.getContextPath()%>/admin/cap-nhat-tin-tuc?cid=<%=item.getId_new()%>"><%=item.getName()%></a></td>
+											<td><%=item.getNameCat()%></td>
+											<td></td>
+											<td class="align-center"><img src="<%=request.getContextPath()%>/files/<%=item.getPicture()%>" alt ="" width="100px" height="100px"></td>
+											<td align="center">
+												<a href="<%=request.getContextPath()%>/admin/cap-nhat-tin-tuc?cid=<%=item.getId_new()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
+												<a onClick = "return confirm('Bạn có thực sự xóa không ?')" href="<%=request.getContextPath()%>/admin/xoa-tin-tuc?cid=<%=item.getId_new()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+											</td>
+											<td align="center">
+												<input type="checkbox" value="<%=item.getId_new()%>">
+											</td>
+										</tr>
+									<%
+								}
+							%>
+							</tbody>
+						</table>
+						</form>
+					 </div> <!-- End .module-table-body -->
+					<%
+				}
+			%>
 	</div> <!-- End .grid_12 -->
 <%@include file="/templates/admin/inc/footer.jsp" %> 

@@ -68,11 +68,25 @@
 						%>
 							<tr>
 								<td class="align-center"><%=item.getId_user()%></td>
-								<td><a href="<%=request.getContextPath()%>/admin/editUser?cid=<%=item.getId_user()%>"><%=item.getUsername()%></a></td>
+								<td><%=item.getUsername()%></td>
 								<td><%=item.getFullname()%></td>
 								<td align="center">
-									<a href="<%=request.getContextPath()%>/admin/cap-nhat-nguoi-dung?cid=<%=item.getId_user()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
-									<a onClick = "return confirm('Bạn có thực sự xóa không ?')" href="<%=request.getContextPath()%>/admin/xoa-nguoi-dung?cid=<%=item.getId_user()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+									<%
+										User Administrator = new User();
+										Administrator = (User)session.getAttribute("objUser");
+										if("admin".equals(Administrator.getUsername())){
+											%>
+												<a href="<%=request.getContextPath()%>/admin/cap-nhat-nguoi-dung?cid=<%=item.getId_user()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
+												<a onClick = "return confirm('Bạn có thực sự xóa không ?')" href="<%=request.getContextPath()%>/admin/xoa-nguoi-dung?cid=<%=item.getId_user()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+											<%
+										}else{
+											if(!item.getUsername().equals("admin")){
+												%>
+													<a href="<%=request.getContextPath()%>/admin/cap-nhat-nguoi-dung?cid=<%=item.getId_user()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
+												<%	
+											}
+										}
+									%>
 								</td>
 							</tr>
 						<%

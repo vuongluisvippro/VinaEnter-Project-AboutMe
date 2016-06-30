@@ -43,19 +43,34 @@ public class ControllerAdminIndexNew extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		boolean cont = true;
 		if(!LibraryPermission.isLogin(request, response)){
 			return;
 		}
-		// tính số trang
-		request.setAttribute("sotrang", new LibraryPagination().getNumberPage(new ModelNew().getSum()));
-		// lấy trang hiện tại
-		int current_page = new LibraryPagination().getCurrentPage(request.getParameter("page"));
-		request.setAttribute("current_page", current_page);
-		// tính offset 
-		int offset = new LibraryPagination().getOffset(current_page);
-		request.setAttribute("alNew",new ModelNew().getListForPagination(offset,LibraryConstant.ROW_COUNT));
-		request.setAttribute("alCat", new ModelCategory().getList());
-		RequestDispatcher rd = request.getRequestDispatcher("/admin/tin-tuc.jsp");
-		rd.forward(request, response);
+		if(request.getParameter("showall")!=null){
+			cont = true;
+		}
+		if(request.getParameter("search")!=null){
+			String searchName = new String(request.getParameter("searchName").getBytes("ISO-8859-1"),"UTF-8");
+			String searchDM = new String(request.getParameter("searchDM").getBytes("ISO-8859-1"),"UTF-8");
+			String searchActive = new String(request.getParameter("searchActive").getBytes("ISO-8859-1"),"UTF-8");
+			request.setAttribute("listSearch", new ModelNew().getListSearch(searchName,searchDM,searchActive));
+			request.setAttribute("alCat", new ModelCategory().getList());
+			RequestDispatcher rd = request.getRequestDispatcher("/admin/tin-tuc.jsp");
+			rd.forward(request, response);
+		}
+		if(cont){
+			// tính số trang
+			request.setAttribute("sotrang", new LibraryPagination().getNumberPage(new ModelNew().getSum()));
+			// lấy trang hiện tại
+			int current_page = new LibraryPagination().getCurrentPage(request.getParameter("page"));
+			request.setAttribute("current_page", current_page);
+			// tính offset 
+			int offset = new LibraryPagination().getOffset(current_page);
+			request.setAttribute("alNew",new ModelNew().getListForPagination(offset,LibraryConstant.ROW_COUNT));
+			request.setAttribute("alCat", new ModelCategory().getList());
+			RequestDispatcher rd = request.getRequestDispatcher("/admin/tin-tuc.jsp");
+			rd.forward(request, response);
+		}
 	}
 }

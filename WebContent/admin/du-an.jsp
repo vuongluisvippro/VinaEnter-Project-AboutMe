@@ -68,10 +68,10 @@
 						%>
 							<tr>
 								<td class="align-center"><%=item.getId_project()%></td>
-								<td><a href="<%=request.getContextPath()%>/admin/cap-nhat-du-an?cid=<%=item.getId_project()%>"><%=item.getName()%></a></td>
+								<td><a href="<%=request.getContextPath()%>/admin/cap-nhat-du-an?cid=<%=item.getId_project()%>" target="blank"><%=item.getName()%></a></td>
 								<td><%=item.getPreview_text()%></td>
 								<td><img src="<%=request.getContextPath()%>/files/<%=item.getPicture()%>" alt ="" width="100px" height="100px"></td>
-								<td><a href="<%=item.getLink()%>"><%=item.getLink()%></td>
+								<td><a href="<%=item.getLink()%>" target="blank"><%=item.getLink()%></td>
 								<td align="center">
 									<a href="<%=request.getContextPath()%>/admin/cap-nhat-du-an?cid=<%=item.getId_project()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
 									<a onClick = "return confirm('Bạn có thực sự xóa không ?')" href="<%=request.getContextPath()%>/admin/xoa-du-an?cid=<%=item.getId_project()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>

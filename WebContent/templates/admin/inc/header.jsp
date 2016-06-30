@@ -46,7 +46,7 @@
                     <div class="grid_12">
                         <div id="logo">
                             <ul id="nav">
-                                <li id="current"><a href="#">Quản trị</a></li>
+                                <li id="current"><a href="<%=request.getContextPath()%>/admin">Quản trị</a></li>
                                 <li><a href="<%=request.getContextPath()%>/admin/nguoi-dung">Tài khoản</a></li>
                             </ul>
                         </div><!-- End. #Logo -->

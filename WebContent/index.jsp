@@ -7,16 +7,16 @@
 				<img src="<%=request.getContextPath()%>/templates/public/images/biking.jpg" alt="">
 				<ul>
 					<li>
-						<a href="https://www.facebook.com/vinaenter.edu.vn" target="_blank">Facebook</a>
+						<a href="https://www.facebook.com/vuongluis" target="blank">Facebook</a>
 					</li>
 					<li>
-						<a href="https://www.facebook.com/vinatab.java.oop">Twitter</a>
+						<a href="https://twitter.com/luisnguyenvan" target="blank">Twitter</a>
 					</li>
 					<li>
-						<a href="https://plus.google.com/u/0/116224150844139911881">Googleplus</a>
+						<a href="https://plus.google.com/" target="blank">Googleplus</a>
 					</li>
 					<li>
-						<a href="http://vinaenter.edu.vn" target="_blank">VinaENTER EDU</a>
+						<a href="http://vinaenter.edu.vn" target="blank">VinaENTER EDU</a>
 					</li>
 				</ul>
 			</div>
@@ -24,7 +24,7 @@
 		<div class="body">
 			<div class="section">
 				<div class="article">
-					<h2>Chào mừng bạn ghé thăm website Gia Huy</h2>
+					<h2>Chào mừng bạn ghé thăm website Văn Vương</h2>
 					<img src="<%=request.getContextPath()%>/templates/public/images/logo-vinaenter.png" alt="">
 					<p>
 						Website chia sẻ thông tin, các bài học giá trị, và tất cả những gì mà Gia Huy học được mỗi ngày. 

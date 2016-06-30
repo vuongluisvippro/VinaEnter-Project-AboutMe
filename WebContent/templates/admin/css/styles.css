@@ -749,7 +749,7 @@ a.user-pro:active {
 .user-pro li a{color:#FFF;}
 
 #header-main { 
-	background: #005195 url(../images/header-bg.jpg) repeat-x top left;
+	background: #005195 url(../images/background.svg) repeat-x top left;
 	height: 94px;
 	}
 	
@@ -768,14 +768,14 @@ a.user-pro:active {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-
-	}
-	
+	padding-left:55px;
+}	
 #subnav ul li { 
 	float: left; 
-	margin: 0 38px 0 0; 
+	margin: 0 40px 0 0; 
 	padding: 0;
-	}
+	font-weight:bold;
+}
 .module-body p.p{margin-top:26px; margin-bottom:0px !important}	
 #subnav ul a, 
 #subnav ul a:visited { 
@@ -785,12 +785,12 @@ a.user-pro:active {
 	font-size: 14px; 
 	padding: 9px 0 0 0;
 	text-decoration: none; 
-	}
+}
 	
 #subnav ul a:hover, 
 #subnav ul a:active { 
-	text-decoration: underline; 
-	}
+	color: #103e72;
+}
 .padding-bottom{padding-bottom:220px;}
 #footer {
 	color: #aaaaaa;

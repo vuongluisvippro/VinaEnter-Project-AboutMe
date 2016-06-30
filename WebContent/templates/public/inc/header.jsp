@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>MyProject</title>
+	<title>Nguyễn Văn Vương</title>
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/templates/public/css/style.css" type="text/css">
 	<!--[if IE 7]>
 		<link rel="stylesheet" href="css/ie7.css" type="text/css">
@@ -16,7 +16,7 @@
 			<div>
 				<span>Nguyễn Văn Vương</span>
 				<a href="index.html" class="logo"><img src="<%=request.getContextPath()%>/templates/public/images/logo.png" alt=""></a>
-				<span class="tagline">Mỗi ngày là một món quà</span>
+				<span class="tagline">tương lai khóc hay cười phụ thuộc vào độ lười của quá khứ</span>
 			</div>
 			<ul>
 				<li class="selected">
