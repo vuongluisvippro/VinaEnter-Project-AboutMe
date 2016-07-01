@@ -1,0 +1,7 @@
+@font-face {
+	font-family: 'Sarina Regular';
+	src: url('Sarina-Regular.eot');
+	src: url('Sarina-Regular.eot?#iefix') format('embedded-opentype'),
+		url('sarina-regular-webfont.woff') format('woff'),
+		url('Sarina-Regular.ttf') format('truetype');
+}

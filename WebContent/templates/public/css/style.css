@@ -1,4 +1,13 @@
 /*Website Template by freewebsitetemplates.com*/
+@import url("../webfonts/Roboto_Light/stylesheet.css");
+@import url("../webfonts/Sarina_Regular/stylesheet.css");
+@import url("../webfonts/Roboto_Black/stylesheet.css");
+@import url("../webfonts/Roboto_Regular/stylesheet.css");
+@import url("../webfonts/Roboto_Thin/stylesheet.css");
+@import url("../webfonts/Roboto_Medium/stylesheet.css");
+@import url("../webfonts/Roboto_BlackItalic/stylesheet.css");
+@import url("../webfonts/AndesRoundedLight/stylesheet.css");
+@import url("../webfonts/Montserrat_SemiBold/stylesheet.css");
 @font-face {
 	font-family: 'Arapey';
 	src: url('../fonts/Arapey/Arapey-Regular.eot');
@@ -46,18 +55,26 @@ body {
 }
 #header div span {
 	color: #fff;
-	font-family: 'Arapey';
+	font-family: "Roboto Medium";
 	font-size: 14px;
 	display: block;
 	float: left;
 	margin: 0;
-	padding: 50px 49px 0 0;
+	padding: 40px 49px 0px 0;
 	text-align: right;
 	width: 331px;
 }
+#header div span:hover{
+	transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s; 
+    -moz-transition-duration: 0.8s; 
+    -o-transition-duration: 0.8s; 
+	text-shadow: 0px 0px 20px #fff;
+}
 #header div .tagline {
-	padding: 50px 0 0 49px;
-	text-align: left;
+	padding: 40px 0 0 49px;
+	text-align: center;
+	font-family: "Roboto Medium";
 }
 #header div a.logo {
 	display: block;
@@ -84,7 +101,8 @@ body {
 	padding: 0;
 }
 #header ul li a {
-	color: #797979;
+	color: #064973;
+	font-family: "AndesRoundedLight";
 	display: inline-block;
 	font-size: 16px;
 	font-weight: normal;
@@ -92,6 +110,7 @@ body {
 	padding: 0 25px 18px;
 	text-decoration: none;
 	text-transform: uppercase;
+	font-weight:bold;
 }
 #header ul li.selected a {
 	background: url(../images/bg-menu.gif) repeat-x bottom left;
@@ -150,9 +169,9 @@ body {
 	-webkit-box-shadow: 0 0 5px #c9c9c9;
 }
 #body .header div ul li a {
+	font-family: "AndesRoundedLight";
 	color: #58a808;
 	display: block;
-	font-family: 'Arapey';
 	font-size: 18px;
 	font-weight: normal;
 	height: 78px;
@@ -187,11 +206,25 @@ body {
 #body .body .section .article h2 {
 	clear: both;
 	color: #FC8010;
-	font-family: 'Arapey';
+	font-family: "Roboto Regular";
 	font-size: 24px;
 	font-weight: normal;
 	margin: 0;
 	padding: 0 0 22px;
+}
+#body .body .section .article h2:hover{
+	
+    transform:translateX(20px);
+    -webkit-transform:translateX(20px);
+    -moz-transform:translateX(20px);
+    -o-transform:translateX(20px);
+    
+	transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s; 
+    -moz-transition-duration: 0.8s; 
+    -o-transition-duration: 0.8s;
+     
+	text-shadow: 0px 0px 10px #fc8010;
 }
 #body .body .section .article img {
 	display: block;
@@ -200,14 +233,33 @@ body {
 	padding: 0;
 	width:156px;
 	height: 159px;
+	margin-left:30px;
+}
+#body .body .section .article img:hover{
+	transform: scale(1.1);
+    -webkit-transform:scale(1.1); 
+    -moz-transform:scale(1.1); 
+    -o-transform:scale(1.1); 
+
+    transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s; 
+    -moz-transition-duration: 0.8s; 
+    -o-transition-duration: 0.8s; 
+
+    box-shadow:0px 0px 30px gray; 
+    -webkit-box-shadow:0px 0px 30px gray; 
+    -moz-box-shadow:0px 0px 30px gray; 
+    opacity: 1;
 }
 #body .body .section .article p {
 	float: left;
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 24px;
 	margin: 0;
+	margin-left:30px;
 	padding: 0 17px 0 0;
 	width: 363px;
+	font-family: "Roboto Regular";
 }
 #body .body .section .article p a {
 	color: #797979;
@@ -220,7 +272,7 @@ body {
 	float: left;
 	margin: 0 10px;
 	overflow: hidden;
-	padding: 43px 0 39px;
+	padding: 39px 0 39px;
 	width: 300px;
 }
 #body .body .section .aside > a {
@@ -241,20 +293,38 @@ body {
 }
 #body .body .section .aside b {
 	color: #58a808;
-	font-family: 'Arapey';
+	font-family: "Roboto Regular";
 	font-size: 18px;
 	font-weight: normal;
 	display: inline-block;
 	margin: 0;
 	padding: 0 0 24px 11px;
 }
+#body .body .section .aside h2{
+	color:#58a808;
+	font-family: "Roboto Regular";
+}
+#body .body .section .aside h2:hover{
+	transform:translateX(20px);
+    -webkit-transform:translateX(20px);
+    -moz-transform:translateX(20px);
+    -o-transform:translateX(20px);
+    
+	transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s; 
+    -moz-transition-duration: 0.8s; 
+    -o-transition-duration: 0.8s;
+     
+	text-shadow: 0px 0px 10px #58a808;
+}
 #body .body .section .aside p {
 	background: url(../images/icons.png) no-repeat -35px -254px;
 	clear: both;
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 24px;
 	margin: 0;
 	padding: 0 13px 0 42px;
+	font-family: "Roboto Regular";
 }
 #body .body .section .aside p a {
 	color: #797979;
@@ -277,6 +347,14 @@ body {
 	margin: 0 10px;
 	padding: 0;
 	width: 298px;
+}
+#body .footer div:hover{
+	transform:translateY(20px);
+	
+	transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s; 
+    -moz-transition-duration: 0.8s; 
+    -o-transition-duration: 0.8s; 
 }
 #body .footer div > a {
 	border-bottom: 1px solid #cdcdcd;
@@ -339,6 +417,10 @@ body {
 	margin: 0;
 	padding: 0 0 21px;
 	text-transform: capitalize;
+}
+#body .titleIntro{
+	font-family: "Montserrat SemiBold";
+	line-height: 1.1em;
 }
 #body .content #section > p {
 	font-size: 17px;

@@ -15,8 +15,8 @@
 		<div>
 			<div>
 				<span>Nguyễn Văn Vương</span>
-				<a href="index.html" class="logo"><img src="<%=request.getContextPath()%>/templates/public/images/logo.png" alt=""></a>
-				<span class="tagline">tương lai khóc hay cười phụ thuộc vào độ lười của quá khứ</span>
+				<a href="<%=request.getContextPath()%>/trang-chu" class="logo"><img src="<%=request.getContextPath()%>/templates/public/images/logo.png" alt=""></a>
+				<span class="tagline">trên bước đường thành công không có dấu chân của kẻ lười biếng</span>
 			</div>
 			<ul>
 				<li class="selected">

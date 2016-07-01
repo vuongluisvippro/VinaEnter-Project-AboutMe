@@ -1,3 +1,7 @@
+<%@page import="library.LibraryUsefull"%>
+<%@page import="java.util.Random"%>
+<%@page import="bean.Say"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@include file="templates/public/inc/header.jsp" %>
@@ -25,46 +29,58 @@
 			<div class="section">
 				<div class="article">
 					<h2>Chào mừng bạn ghé thăm website Văn Vương</h2>
-					<img src="<%=request.getContextPath()%>/templates/public/images/logo-vinaenter.png" alt="">
+					<img src="<%=request.getContextPath()%>/templates/public/images/logo_DUT.jpg" alt="">
 					<p>
-						Website chia sẻ thông tin, các bài học giá trị, và tất cả những gì mà Gia Huy học được mỗi ngày. 
+						Website chia sẻ thông tin, các bài học giá trị, và tất cả những gì mà Vương học được mỗi ngày. 
 						Hy vọng đây sẽ là kênh hữu ích để chúng ta cùng kết nối, giao lưu lẫn nhau. <br />
-						Các công nghệ mới nhất về CNTT cũng được Gia Huy cập nhật tại website này, chúng ta hãy cũng nhau học tập,
-						cùng nhau nghiên cứu để tạo nên một bước đợt phá để ngày hôm nay luôn khác ngay hôm qua :D
+						Các công nghệ mới nhất về CNTT cũng được Vương cập nhật tại website này, chúng ta hãy cũng nhau học tập,
+						cùng nhau nghiên cứu để tạo nên một bước đột phá để ngày hôm nay luôn khác ngay hôm qua.
 					</p>
 				</div>
 				<div class="aside">
-					<b>Những Câu Nói Hay</b>
-					<p>
-						Nếu bạn luôn buồn phiền, hãy dùng hy vọng để chữa trị; hạnh phúc lớn nhất của nhân loại chính là biết hi vọng
-					</p>
-					<span class="author">- Khuyết danh</span>
+					<h2>Những Câu Nói Hay</h2>
+					<%
+						ArrayList<Say> alSay = new ArrayList<Say>();
+						Say item = new Say();
+						if(request.getAttribute("alSay")!=null){
+							alSay = (ArrayList<Say>)request.getAttribute("alSay");
+						}
+						int index = new Random().nextInt(alSay.size());
+						item = alSay.get(index);
+					%>
+					<ul style="list-style-type:none">
+						<li>
+								<p style="color: <%=LibraryUsefull.getColorRandom()%>">
+									<%=item.getContent()%>
+								</p>
+							<span class="author"><%=item.getAuthor()%></span>
+						</li>	
+					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="footer">
 			<div>
-				<a href="doctors.html"><img src="<%=request.getContextPath()%>/templates/public/images/friends.jpg" alt=""></a>
-				<h3>Quan điểm tình bạn của Gia Huy</h3>
+				<a href="doctors.html"><img src="<%=request.getContextPath()%>/templates/public/images/love.jpg" alt=""></a>
+				<h3>Quan điểm tình bạn của Văn Vương</h3>
 				<p>
-					Có một người bạn khăng khít còn hơn là một người anh em ruột.
+					Tình yêu không cần phải hoàn hảo, nó chỉ cần chân thật. 
 				</p>
 			</div>
 			<div>
 				<a href="services.html"><img src="<%=request.getContextPath()%>/templates/public/images/life.jpg" alt=""></a>
-				<h3>Quan điểm về cuộc sống của Gia Huy</h3>
+				<h3>Quan điểm về cuộc sống của Văn Vương</h3>
 				<p>
-					Hãy sống là chính mình, bình thường nhưng không tầm thường.
+					Cuộc sống vốn không cân bằng. Hãy tập quen dần với điều đó.
 				</p>
 			</div>
 			<div>
-				<a href="services.html"><img src="<%=request.getContextPath()%>/templates/public/images/love.jpg" alt=""></a>
-				<h3>Quan điểm về tình yêu của Gia Huy</h3>
+				<a href="services.html"><img src="<%=request.getContextPath()%>/templates/public/images/friends.jpg" alt=""></a>
+				<h3>Quan điểm về tình yêu của Văn Vương</h3>
 				<p>
-					Cuộc sống mà không có tình yêu thì không còn là cuộc sống nữa.
+					Tình yêu không cần phải hoàn hảo, nó chỉ cần chân thật. 
 				</p>
 			</div>
 		</div>
 	</div>
-	
    <%@include file="templates/public/inc/footer.jsp" %>

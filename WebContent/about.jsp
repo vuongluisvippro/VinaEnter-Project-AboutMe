@@ -7,7 +7,7 @@
    <div id="body">
 		<div class="content">
 			<div id="section">
-				<h2>Chào mừng bạn đến với website cá nhân Trần Nguyễn Gia Huy</h2>
+				<h2 class="titleIntro">Chào mừng bạn đến với website cá nhân Nguyễn Văn Vương</h2>
 				<p>
 					Trần Nguyễn Gia Huy sinh ngày 19/05/2000, được sinh ra trong một gia đình giàu truyền thống ngành CNTT. Cha tôi là một kỹ sư CNTT đầu ngành trong công ty, và có nhiều đóng góp tạo nên thương hiệu công ty...
 				</p>
