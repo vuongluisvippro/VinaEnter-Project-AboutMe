@@ -101,7 +101,6 @@
 			 					<a href="<%=request.getContextPath()%>/admin/du-an?page=<%=i%>" class="current"><%=i%></a> |
 			 				<%
 			 			}
-			 			
 			 		}else if(i == sotrang){
 			 			%>
 			 				<a href="<%=request.getContextPath()%>/admin/du-an?page=<%=i%>"><%=i%></a>

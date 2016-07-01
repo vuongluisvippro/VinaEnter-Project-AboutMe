@@ -39,6 +39,22 @@ public class ModelNew {
 		}
 		return alNew;
 	}
+	public ArrayList<New> getListCommon(int itemIndex1) {
+		ArrayList<New> alNew = new ArrayList<New>();
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "SELECT id_news,name,preview_text,detail_text,id_cat,picture,view,is_active FROM news WHERE id_cat = ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, itemIndex1);
+			rs = pst.executeQuery();
+			while(rs.next()){
+				alNew.add(new New(rs.getInt("id_news"), rs.getString("name"), rs.getString("preview_text"), rs.getString("detail_text"), rs.getInt("id_cat"), rs.getString("picture"), rs.getInt("view"), rs.getInt("is_active")));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return alNew;
+	}
 	public int addItem(New item) {
 		int result = 0;
 		Connection conn = mConnect.getConnectMySQL();
@@ -207,14 +223,14 @@ public class ModelNew {
 	public ArrayList<New> getListConcer(int id_cat,int id_news) {
 		ArrayList<New> alItem = new ArrayList<New>();
 		Connection conn = mConnect.getConnectMySQL();
-		String sql = "SELECT news.id_news,news.name,news.preview_text,news.detail_text,news.id_cat,news.picture,news.view,news.is_active,category.name AS nameCat FROM news INNER JOIN category ON news.id_cat = category.id_cat WHERE news.id_cat = ? NOT IN (?)";
+		String sql = "SELECT id_news,name,preview_text,detail_text,id_cat,picture,view,is_active FROM news WHERE id_cat = ? AND id_news NOT IN(?)";
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, id_cat);
 			pst.setInt(2, id_news);
 			rs = pst.executeQuery();
 			while(rs.next()){
-				alItem.add(new New(rs.getInt("id_news"), rs.getString("name"), rs.getString("preview_text"), rs.getString("detail_text"), rs.getInt("id_cat"), rs.getString("picture"), rs.getInt("view"), rs.getInt("is_active"), rs.getString("nameCat")));
+				alItem.add(new New(rs.getInt("id_news"), rs.getString("name"), rs.getString("preview_text"), rs.getString("detail_text"), rs.getInt("id_cat"), rs.getString("picture"), rs.getInt("view"), rs.getInt("is_active")));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

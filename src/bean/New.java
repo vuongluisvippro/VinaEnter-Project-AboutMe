@@ -59,6 +59,18 @@ public class New {
 		this.id_cat = id_cat;
 		this.picture = picture;
 	}
+	public New(int id_new, String name, String preview_text, String detail_text, int id_cat, String picture, int read,
+			int is_active) {
+		super();
+		this.id_new = id_new;
+		this.name = name;
+		this.preview_text = preview_text;
+		this.detail_text = detail_text;
+		this.id_cat = id_cat;
+		this.picture = picture;
+		this.read = read;
+		this.is_active = is_active;
+	}
 	public int getId_new() {
 		return id_new;
 	}

@@ -29,7 +29,7 @@
 						%>
 							<li>
 								<div class="article">
-									<h3><a href="<%=request.getContextPath()%>/chi-tiet?cid=<%=x.getId_new()%>" class="more"><%=x.getName()%></a></h3>
+									<h3><a href="<%=request.getContextPath()%>/chi-tiet?cid=<%=x.getId_new()%>" class="more" target="blank"><%=x.getName()%></a></h3>
 									<p>
 										<%=x.getPreview_text()%>								
 									</p>

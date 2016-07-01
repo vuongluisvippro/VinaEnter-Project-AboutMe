@@ -1,3 +1,4 @@
+<%@page import="bean.Me"%>
 <%@page import="bean.Say"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.Advs"%>
@@ -9,16 +10,20 @@
 			<div id="section">
 				<h2 class="titleIntro">Chào mừng bạn đến với website cá nhân Nguyễn Văn Vương</h2>
 				<p>
-					Trần Nguyễn Gia Huy sinh ngày 19/05/2000, được sinh ra trong một gia đình giàu truyền thống ngành CNTT. Cha tôi là một kỹ sư CNTT đầu ngành trong công ty, và có nhiều đóng góp tạo nên thương hiệu công ty...
+					<%
+						Me me = new Me();
+						me = (Me)request.getAttribute("alMe");
+						out.print(me.getDetail_text());
+					%>
 				</p>
 				<img src="<%=request.getContextPath()%>/templates/public/images/old-couple.jpg" alt="">
 				<div class="article">
 					<div>
-						<h3>Vài nét về Gia Huy</h3>
+						<h3>Vài nét về Văn Vương</h3>
 						<p>
-						- Họ tên: Trần Nguyễn Gia Huy<br />
-						- Địa chỉ: 154 Phạm Như Xương, Liên Chiểu, Đà Nẵng<br />
-						- Email: giahuy@vinaenter.com - Phone: 0905.051.720
+						- Họ tên: Nguyễn Văn Vương<br />
+						- Địa chỉ: K920/14 Tổ 8A Bách Khoa - Hòa Khánh Bắc - Liên Chiểu- TP Đà Nẵng<br />
+						- Email: vuongluis@gmail.com - Phone: 0972.224.8187
 						</p>
 						
 						<h3>Khả năng của tôi</h3>
@@ -41,7 +46,7 @@
 						<p>
 						- Làm việc trong môi trường chuyên nghiệp<br />
 						- Nâng cao kỹ năng chuyên môn với nhiều dự án khó<br />
-						- Góp phần phát triển phòng công nghệ của công ty
+						- Góp phần phát triển công nghệ của công ty
 						</p>
 					</div>
 				</div>

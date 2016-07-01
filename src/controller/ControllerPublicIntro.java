@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.ModelAdvs;
+import model.ModelMe;
 import model.ModelSay;
 
 /**
@@ -40,6 +41,7 @@ public class ControllerPublicIntro extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setAttribute("alSay", new ModelSay().getList());
 		request.setAttribute("alAdvs", new ModelAdvs().getList());
+		request.setAttribute("alMe", new ModelMe().getItem());
 		RequestDispatcher rd = request.getRequestDispatcher("/about.jsp");
 		rd.forward(request, response);
 	}

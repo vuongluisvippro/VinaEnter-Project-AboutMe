@@ -36,21 +36,35 @@
 				%>
 				</ul>
 				<ul class="paging">
-					<li class="first">
-						<a href="#">Trước</a>
-					</li>
-					<li class="selected">
-						<a href="#">1</a>
-					</li>
-					<li>
-						<a href="#">2</a>
-					</li>
-					<li>
-						<a href="#">3</a>
-					</li>
-					<li class="last">
-						<a href="#">Sau</a>
-					</li>
+					<%         
+						int sotrang = (Integer)request.getAttribute("sotrang");
+					 	int current_page = (Integer)request.getAttribute("current_page");
+					 	%>
+					 		<li class="first">
+								<a href="<%=request.getContextPath()%>/du-an?prev=<%=current_page%>">Trước</a>
+							</li>
+					 	<%
+					 	for(int i = 1;i <= sotrang;i++){
+					 		if(current_page == i){
+					 			%>
+					 			<li class="selected">
+					 				<a href="<%=request.getContextPath()%>/du-an?page=<%=i%>"><%=i%></a>
+					 			</li>
+					 			<%
+					 		}else{
+					 			%>
+					 			<li>
+				 					<a href="<%=request.getContextPath()%>/du-an?page=<%=i%>"><%=i%></a>
+				 				</li>
+				 				<%
+					 		}
+					 	}
+					 	%>
+					 		<li class="last">
+								<a href="<%=request.getContextPath()%>/du-an?next=<%=current_page%>">Sau</a>
+							</li>
+					 	<%
+			 		%>
 				</ul>
 			</div>
 			

@@ -260,6 +260,7 @@ body {
 	padding: 0 17px 0 0;
 	width: 363px;
 	font-family: "Roboto Regular";
+	text-align: justify;
 }
 #body .body .section .article p a {
 	color: #797979;
@@ -325,6 +326,7 @@ body {
 	margin: 0;
 	padding: 0 13px 0 42px;
 	font-family: "Roboto Regular";
+	text-align: justify;
 }
 #body .body .section .aside p a {
 	color: #797979;
@@ -427,6 +429,7 @@ body {
 	line-height: 30px;
 	margin: 0;
 	padding: 0;
+	text-align: justify;
 }
 #body .content #section > p a {
 	color: #FC8010;
