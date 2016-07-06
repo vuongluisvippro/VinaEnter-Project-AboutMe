@@ -110,12 +110,6 @@ public class ControllerAdminEditNew extends HttpServlet {
 					}
 				}
 			}
-			System.out.println(id);
-			System.out.println(name);
-			System.out.println(preview_text);
-			System.out.println(detail_text);
-			System.out.println(id_cat);
-			System.out.println(picture_new);
 			New item = new New(id, name, preview_text, detail_text, id_cat, picture_new);
 			if(new ModelNew().editItem(item) > 0){
 				response.sendRedirect(request.getContextPath()+"/admin/tin-tuc?msg=edit1");
