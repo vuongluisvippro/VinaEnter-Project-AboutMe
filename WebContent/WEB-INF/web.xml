@@ -10,6 +10,14 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
+      <servlet-name>ControllerAdminAjax</servlet-name>
+      <servlet-class>controller.ControllerAdminAjax</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>ControllerAdminAjax</servlet-name>
+      <url-pattern>/admin/ajax</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ControllerAdminIndex</servlet-name>
     <servlet-class>controller.ControllerAdminIndex</servlet-class>
   </servlet>
@@ -290,11 +298,11 @@
     <url-pattern>/trang-chu</url-pattern>
   </servlet-mapping>
   <servlet>
-      <servlet-name>ControllerPublicDetailNew</servlet-name>
-      <servlet-class>controller.ControllerPublicDetailNew</servlet-class>
+    <servlet-name>ControllerPublicDetailNew</servlet-name>
+    <servlet-class>controller.ControllerPublicDetailNew</servlet-class>
   </servlet>
   <servlet-mapping>
-      <servlet-name>ControllerPublicDetailNew</servlet-name>
-      <url-pattern>/chi-tiet</url-pattern>
+    <servlet-name>ControllerPublicDetailNew</servlet-name>
+    <url-pattern>/chi-tiet</url-pattern>
   </servlet-mapping>
 </web-app>

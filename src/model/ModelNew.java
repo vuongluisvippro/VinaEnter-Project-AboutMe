@@ -304,4 +304,25 @@ public class ModelNew {
 		}
 		return alItem;
 	}
+	public int editItemActive(New item) {
+		int result = 0;	
+		Connection conn = mConnect.getConnectMySQL();
+		String sql = "UPDATE "+tbName+" SET is_active = ? WHERE "+idName+" = ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, item.getIs_active());
+			pst.setInt(2, item.getId_new());
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally{
+			try {
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
 }

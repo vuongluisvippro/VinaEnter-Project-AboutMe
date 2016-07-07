@@ -64,7 +64,7 @@
 				<a href="doctors.html"><img src="<%=request.getContextPath()%>/templates/public/images/love.jpg" alt=""></a>
 				<h3>Quan điểm tình bạn của Văn Vương</h3>
 				<p>
-					Tình yêu không cần phải hoàn hảo, nó chỉ cần chân thật. 
+					Bạn tốt khó tìm, khó bỏ lại, và không thể lãng quên.
 				</p>
 			</div>
 			<div>

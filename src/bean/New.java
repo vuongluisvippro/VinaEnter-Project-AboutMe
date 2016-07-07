@@ -71,6 +71,11 @@ public class New {
 		this.read = read;
 		this.is_active = is_active;
 	}
+	public New(int id_new, int is_active) {
+		super();
+		this.id_new = id_new;
+		this.is_active = is_active;
+	}
 	public int getId_new() {
 		return id_new;
 	}
