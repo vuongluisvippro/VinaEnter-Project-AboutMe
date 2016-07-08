@@ -223,7 +223,7 @@ public class ModelNew {
 	public ArrayList<New> getListConcer(int id_cat,int id_news) {
 		ArrayList<New> alItem = new ArrayList<New>();
 		Connection conn = mConnect.getConnectMySQL();
-		String sql = "SELECT id_news,name,preview_text,detail_text,id_cat,picture,view,is_active FROM news WHERE id_cat = ? AND id_news NOT IN(?)";
+		String sql = "SELECT id_news,name,preview_text,detail_text,id_cat,picture,view,is_active FROM news WHERE id_cat = ? AND id_news NOT IN(?) ORDER BY RAND() LIMIT 3";
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, id_cat);
