@@ -13,6 +13,7 @@ import model.ModelNew;
 /**
  * Servlet implementation class ControllerPublicIndex
  */
+@SuppressWarnings("all")
 public class ControllerAdminDeleteNew extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -39,6 +40,16 @@ public class ControllerAdminDeleteNew extends HttpServlet {
 		// TODO Auto-generated method stub
 		if(!LibraryPermission.isLogin(request, response)){
 			return;
+		}
+		if("delete".equals(request.getParameter("active"))){
+			if(request.getParameter("idnews")!=null){
+				for(String id_news : request.getParameterValues("idnews")){
+					new ModelNew().delItem(Integer.parseInt(id_news));
+				}
+				response.sendRedirect(request.getContextPath()+"/admin/tin-tuc?msg=del1");
+			}else{
+				response.sendRedirect(request.getContextPath()+"/admin/tin-tuc");
+			}
 		}
 		if(request.getParameter("cid")!=null){
 			int id = Integer.parseInt(request.getParameter("cid"));

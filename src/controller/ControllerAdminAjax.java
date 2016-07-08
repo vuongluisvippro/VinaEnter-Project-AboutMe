@@ -45,8 +45,6 @@ public class ControllerAdminAjax extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		int id_news = Integer.parseInt(request.getParameter("id_news"));
 		int is_active = Integer.parseInt(request.getParameter("is_active"));
-		System.out.println(id_news);
-		System.out.println(is_active);
 		String result = "";
 		is_active = (is_active+1)%2;
 		New item = new New(id_news,is_active);

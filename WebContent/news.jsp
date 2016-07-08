@@ -33,19 +33,21 @@
 								if(itemNew.getId_cat() == itemCat.getId_cat()){
 									itemIndex1 = itemNew.getId_cat();
 										if(itemCount == 0)
-										{																				
-											%>
-												<div class="project-top">
-													<a href="<%=request.getContextPath()%>/chi-tiet?cid=<%=itemNew.getId_new()%>" target="blank"><img src="<%=request.getContextPath()%>/files/<%=itemNew.getPicture()%>" alt=""></a>
-													<div>
-														<b><a href="<%=request.getContextPath()%>/chi-tiet?cid=<%=itemNew.getId_new()%>" target="blank"><%=itemNew.getName()%></a></b> 
-														<small>Ngày đăng: 12/1/2016</small>
-														<p class="preview_text">
-															<%=itemNew.getPreview_text()%>						
-														</p>
+										{	
+											if(itemNew.getIs_active() == 1){
+												%>
+													<div class="project-top">
+														<a href="<%=request.getContextPath()%>/chi-tiet?cid=<%=itemNew.getId_new()%>" target="blank"><img src="<%=request.getContextPath()%>/files/<%=itemNew.getPicture()%>" alt=""></a>
+														<div>
+															<b><a href="<%=request.getContextPath()%>/chi-tiet?cid=<%=itemNew.getId_new()%>" target="blank"><%=itemNew.getName()%></a></b> 
+															<small>Ngày đăng: 12/1/2016</small>
+															<p class="preview_text">
+																<%=itemNew.getPreview_text()%>						
+															</p>
+														</div>	
 													</div>	
-												</div>	
-											<%
+												<%	
+											}
 										}
 										itemCount = 1;
 								}
@@ -54,12 +56,14 @@
 									<ul class="article">
 									<%
 										for(New itemX : new ModelNew().getListCommon(itemIndex1)){
-											%>
-												<li>
-													<a href="<%=request.getContextPath()%>/chi-tiet?cid=<%=itemX.getId_new()%>" target="blank"><img src="<%=request.getContextPath()%>/files/<%=itemX.getPicture()%>" alt=""></a> <b><a href="<%=request.getContextPath()%>/chi-tiet?cid=<%=itemX.getId_new()%>"></a></b> <small>Ngày Đăng: 12/1/2016</small>
-													<p><%=itemX.getPreview_text()%></p>
-												</li>	
-											<%
+											if(itemX.getIs_active() == 1){
+												%>
+													<li>
+														<a href="<%=request.getContextPath()%>/chi-tiet?cid=<%=itemX.getId_new()%>" target="blank"><img src="<%=request.getContextPath()%>/files/<%=itemX.getPicture()%>" alt=""></a> <b><a href="<%=request.getContextPath()%>/chi-tiet?cid=<%=itemX.getId_new()%>"></a></b> <small>Ngày Đăng: 12/1/2016</small>
+														<p><%=itemX.getPreview_text()%></p>
+													</li>	
+												<%	
+											}
 										}
 									%>
 									</ul>	

@@ -82,7 +82,7 @@
 					alNew = (ArrayList<New>)request.getAttribute("alNew");	
 					%>
 						<div class="module-table-body">
-						<form action="">
+						<form action="<%=request.getContextPath()%>/admin/xoa-tin-tuc?active=delete" method="post">
 						<table id="myTable" class="tablesorter">
 							<thead>
 								<tr>
@@ -94,8 +94,8 @@
 									<th style="width:10%">Chức năng</th>
 									<th style="widht:10%">
 										Chọn: 
-										<input type="checkbox" value="" name="chkAll">
-										<input type="submit" value="Xóa" name="dels">
+										<input type="checkbox" name="chkAll" id="chkAll">
+										<input type="submit" name="dels" onclick="return valDels()" value="Xóa">
 									</th>
 								</tr>
 							</thead>
@@ -124,7 +124,7 @@
 												<a onclick = "return confirm('Bạn có thực sự xóa không ?')" href="<%=request.getContextPath()%>/admin/xoa-tin-tuc?cid=<%=item.getId_new()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>
 											</td>
 											<td align="center">
-												<input type="checkbox" value="<%=item.getId_new()%>">
+												<input type="checkbox" class="chkCheckBoxId" name="idnews" value="<%=item.getId_new()%>">
 											</td>
 										</tr>
 									<%
@@ -169,7 +169,7 @@
 					alNew = (ArrayList<New>)request.getAttribute("listSearch");
 					%>
 						<div class="module-table-body">
-						<form action="">
+						<form action="<%=request.getContextPath()%>/admin/xoa-tin-tuc?active=delete" method="post">
 						<table id="myTable" class="tablesorter">
 							<thead>
 								<tr>
@@ -181,8 +181,8 @@
 									<th style="width:10%">Chức năng</th>
 									<th style="widht:10%">
 										Chọn: 
-										<input type="checkbox" value="" name="chkAll">
-										<input type="submit" value="Xóa" name="dels">
+										<input type="checkbox" name="chkAll" id="chkAll">
+										<input type="submit" name="dels" onclick="return valDels()" value="Xóa">
 									</th>
 								</tr>
 							</thead>
@@ -194,14 +194,24 @@
 											<td class="align-center"><%=item.getId_new()%></td>
 											<td><a href="<%=request.getContextPath()%>/admin/cap-nhat-tin-tuc?cid=<%=item.getId_new()%>"><%=item.getName()%></a></td>
 											<td><%=item.getNameCat()%></td>
-											<td></td>
+											<td align="center" class="active-<%=item.getId_new()%>">
+												<a href="javascript:void(0)"  onclick="return doActive(<%=item.getId_new()%>,<%=item.getIs_active()%>)" title="">
+													<%
+														if(item.getIs_active() == 1){
+															%><img src="<%=request.getContextPath()%>/templates/admin/images/tick-circle.gif" alt="tick"/><%
+														}else{
+															%><img src="<%=request.getContextPath()%>/templates/admin/images/minus-circle.gif" alt="minus"/><%
+														}
+													%>
+												</a>
+											</td>
 											<td class="align-center"><img src="<%=request.getContextPath()%>/files/<%=item.getPicture()%>" alt ="" width="100px" height="100px"></td>
 											<td align="center">
 												<a href="<%=request.getContextPath()%>/admin/cap-nhat-tin-tuc?cid=<%=item.getId_new()%>">Sữa<img src="<%=request.getContextPath()%>/templates/admin/images/pencil.gif" alt="edit" /></a>
 												<a onClick = "return confirm('Bạn có thực sự xóa không ?')" href="<%=request.getContextPath()%>/admin/xoa-tin-tuc?cid=<%=item.getId_new()%>">Xóa<img src="<%=request.getContextPath()%>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a>
 											</td>
 											<td align="center">
-												<input type="checkbox" value="<%=item.getId_new()%>">
+												<input type="checkbox" class="chkCheckBoxId" name="idnews" value="<%=item.getId_new()%>">
 											</td>
 										</tr>
 									<%
@@ -232,6 +242,27 @@
 						}
 					});
 				}
-			</script>		
+			</script>
+			<!-- Thiết lập chức năng xóa toàn bộ -->	
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('#chkAll').click(function(){
+						if($(this).is(":checked")){
+							$('.chkCheckBoxId').prop('checked',true);
+						}else{
+							$('.chkCheckBoxId').prop('checked',false);
+						}	
+					});
+				});
+			</script>	
+			<!-- Xóa dữ liệu  -->
+			<script type="text/javascript">
+				function valDels(){
+					var chkValue = $('.chkCheckBoxId:checked').val();
+					if(chkValue == null){
+						alert('Vui lòng chọn ít nhất một tin để xóa');	
+					}
+				}
+			</script>
 	</div> <!-- End .grid_12 -->
 <%@include file="/templates/admin/inc/footer.jsp" %> 
