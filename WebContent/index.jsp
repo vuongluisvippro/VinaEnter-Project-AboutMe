@@ -37,26 +37,6 @@
 						cùng nhau nghiên cứu để tạo nên một bước đột phá để ngày hôm nay luôn khác ngay hôm qua.
 					</p>
 				</div>
-				<div class="aside">
-					<h2>Những Câu Nói Hay</h2>
-					<%
-						ArrayList<Say> alSay = new ArrayList<Say>();
-						Say item = new Say();
-						if(request.getAttribute("alSay")!=null){
-							alSay = (ArrayList<Say>)request.getAttribute("alSay");
-						}
-						int index = new Random().nextInt(alSay.size());
-						item = alSay.get(index);
-					%>
-					<ul style="list-style-type:none">
-						<li>
-								<p style="color: <%=LibraryUsefull.getColorRandom()%>">
-									<%=item.getContent()%>
-								</p>
-							<span class="author"><%=item.getAuthor()%></span>
-						</li>	
-					</ul>
-				</div>
 			</div>
 		</div>
 		<div class="footer">
